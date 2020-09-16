@@ -1,3 +1,3 @@
 # OnlineShopping
 # be loyal
-# time left 12days.
+# time left 14days.
