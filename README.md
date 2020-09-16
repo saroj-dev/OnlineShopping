@@ -1,3 +1,4 @@
 # OnlineShopping
 # be loyal
-# time left 14days.
+total time 14days.
+time left : 12 days only !!!!
