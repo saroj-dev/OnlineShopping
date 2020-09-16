@@ -42,6 +42,7 @@ if($fire_select->num_rows > 0){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="google-signin-client_id" content="535148229856-m10rniu317a6q34uu6lebr91kfj1pcr7.apps.googleusercontent.com">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -93,11 +94,11 @@ if($fire_select->num_rows > 0){
           <div class="title">  Login Here  </div>
     <form   method="POST">
             <div class="field">
-              <input type="text"   name="email">
+              <input type="text"   name="email" required>
               <label>Email</label>
             </div>
     <div class="field">
-              <input type="password"  name="password">
+              <input type="password"  name="password" required>
               <label>Password</label>
             </div>
      
@@ -108,18 +109,36 @@ if($fire_select->num_rows > 0){
             
    <?php if(isset($error_mess)) { echo "$error_mess";}?>
    
+
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
     </form>
     </div>
    
 
  
     </html>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <script>
     if ( window.history.replaceState ) {
       x= window.location.href;
         window.history.replaceState( null, null, x );
           
     }
+
+
+    function onSignIn(googleUser) {
+      alert("sure")
+
+  var profile = googleUser.getBasicProfile();
+ alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  alert('Name: ' + profile.getName());
+  alert('Image URL: ' + profile.getImageUrl());
+  alert('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+
 </script>
 </body>
 </html>

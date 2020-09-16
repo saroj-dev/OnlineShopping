@@ -57,10 +57,46 @@ if(isset($_REQUEST['submit'])){
  <html lang="en">
  <head>
    <meta charset="UTF-8">
+   <meta name="google-signin-client_id" content="535148229856-m10rniu317a6q34uu6lebr91kfj1pcr7.apps.googleusercontent.com">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Register Here</title>
    <link rel="stylesheet" href="css/login_register.css">
 
+   <style>
+ 
+ 
+    .not{
+      font-size:13px;
+      font-size:17px;
+      text-align:center;
+      margin-top:30px;
+      background-color:#ffd599f6;
+      padding:10px 0;
+  }
+  .sucess{
+      font-size:13px;
+      font-size:17px;
+      text-align:center;
+      margin-top:30px;
+      background-color:#b5ebb5;
+      padding:10px 0;
+  }
+  .warning{
+    background-color:#ffcccb;
+    font-size:13px;
+      font-size:17px;
+      text-align:center;
+      margin-top:30px;
+      padding:10px 0;
+  }
+  .centerlogin{
+    text-align:center;
+  }
+  .hide{
+    display:none;
+  }
+  </style>
+   
  </head>
  <body>
  <br><br><br>
@@ -90,58 +126,37 @@ if(isset($_REQUEST['submit'])){
    <?php if(isset($redirect)) { echo "$redirect";}?>
     
    </p>
-
+   <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </form>
     </div>  
     <br>
     <br>
     <br>
     <br>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <script>
     if ( window.history.replaceState ) {
       x= window.location.href;
         window.history.replaceState( null, null, x );
           
     }
+
+    function onSignIn(googleUser) {
+      alert("sure")
+
+  var profile = googleUser.getBasicProfile();
+ alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  alert('Name: ' + profile.getName());
+  alert('Image URL: ' + profile.getImageUrl());
+  alert('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+
 </script>
  </body>
  </html>
  
   
  
- 
-<style>
- 
- 
-  .not{
-    font-size:13px;
-    font-size:17px;
-    text-align:center;
-    margin-top:30px;
-    background-color:#ffd599f6;
-    padding:10px 0;
-}
-.sucess{
-    font-size:13px;
-    font-size:17px;
-    text-align:center;
-    margin-top:30px;
-    background-color:#b5ebb5;
-    padding:10px 0;
-}
-.warning{
-  background-color:#ffcccb;
-  font-size:13px;
-    font-size:17px;
-    text-align:center;
-    margin-top:30px;
-    padding:10px 0;
-}
-.centerlogin{
-  text-align:center;
-}
-.hide{
-  display:none;
-}
-</style>
  
