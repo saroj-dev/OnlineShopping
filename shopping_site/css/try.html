@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center style="margin-top:300px; font-size:10rem; text-transform:capitalize;"></center>
+</body>
+<script>
+var toType = ['this is the first thing to type'];
+var letter = "";
+var currentSentence = "";
+var letterCount = 0;
+function typeIt(e , time){
+    currentSentence = e;
+    setInterval(() => {
+        letter = currentSentence.slice(0, letterCount);
+        document.querySelector("center").textContent = letter;
+        if(letterCount >= currentSentence.length){
+            return;
+        }
+        letterCount ++;
+      },time);
+}
+
+typeIt("type this not that",70)
+
+
+</script>
+</html>
