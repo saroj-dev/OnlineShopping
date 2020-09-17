@@ -1,6 +1,6 @@
 <?php
-include "connection.php";
-include "welcome.php";
+//include "connection.php";
+//include "welcome.php";
 session_start();
 if(!isset($_SESSION['is_login'])){
 
@@ -47,7 +47,7 @@ if($fire_select->num_rows > 0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/login_register.css">
+    <link rel="stylesheet" href="./CSS/login_register.css">
     <style>
     .warning{
   background-color:#ffcccb;
@@ -91,29 +91,37 @@ if($fire_select->num_rows > 0){
      
       <body>
         <div class="wrapper">
+					<div class="form">
           <div class="title">  Login Here  </div>
-    <form   method="POST">
+   				 <form method="POST">
             <div class="field">
               <input type="text"   name="email" required>
               <label>Email</label>
             </div>
-    <div class="field">
+    				<div class="field">
               <input type="password"  name="password" required>
               <label>Password</label>
             </div>
      
-    <div class="field">
+    				<div class="field">
               <input type="submit" value="Login" name="submit">
             </div>
-            
-            
-   <?php if(isset($error_mess)) { echo "$error_mess";}?>
-   
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+						<div class="or">OR</div>
+            
+            <?php if(isset($error_mess)) { echo "$error_mess";}?>
+  
+    				<div class="g-signin2" data-width="300px" data-height="50px" data-onsuccess="onSignIn"></div>
+						<p class="signup-link">Don't have an account? <a href="./registeration.php">Create one</a></p>
+    			 </form>
+					 </div>
 
-    </form>
-    </div>
+					<div class="form__image">
+
+						<img src="images/secure.login.svg" alt="image" />
+
+					</div>
+    		</div>
    
 
  

@@ -1,4 +1,5 @@
-<?php include "connection.php";
+<?php 
+//include "connection.php";
 
 if(isset($_REQUEST['submit'])){
   if($_REQUEST['username']=="" || $_REQUEST['email']=="" || $_REQUEST['password']==""){
@@ -60,7 +61,7 @@ if(isset($_REQUEST['submit'])){
    <meta name="google-signin-client_id" content="535148229856-m10rniu317a6q34uu6lebr91kfj1pcr7.apps.googleusercontent.com">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Register Here</title>
-   <link rel="stylesheet" href="css/login_register.css">
+   <link rel="stylesheet" href="CSS/login_register.css">
 
    <style>
  
@@ -101,6 +102,7 @@ if(isset($_REQUEST['submit'])){
  <body>
  <br><br><br>
  <div class="wrapper">
+				<div class="form">
           <div class="title">Create an Account</div>
 
     <form   method="POST"   autocomplete="off">
@@ -120,14 +122,27 @@ if(isset($_REQUEST['submit'])){
            <div class="field">
               <input type="submit" value="Create  " name="submit">
             </div>
+
+						<div class="or">OR</div>
+
    <p class="hide">
    <?php if(isset($error_mess)) { echo "$error_mess";}?>
    <br>
    <?php if(isset($redirect)) { echo "$redirect";}?>
     
    </p>
-   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+   <div class="g-signin2" data-width="300px" data-height="50px" data-onsuccess="onSignIn"></div>
+						<p class="signup-link">Already have an account? <a href="./login.php">Sign in</a></p>
     </form>
+		</div>
+
+			<div class="form__image">
+
+				<img src="images/login.shopping.svg" alt="image" />
+
+			</div>
+
+
     </div>  
     <br>
     <br>
