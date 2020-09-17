@@ -297,10 +297,25 @@ display: none;
  
 small{
     font-size: 1.1em;
+    color: rgb(0, 81, 255);
 }
 .high_price{
     font-size: 1.1em;
     color: rgb(255, 125, 125);
+    position: relative;
+}
+.high_price::after{
+    content:'';
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-7deg);
+    height: 1px;
+    width: 40%;
+    background:rgb(255, 125, 125) ;
+    padding-right: 30px;
+
+
 }
 
 .btm .btn_add_cart{
