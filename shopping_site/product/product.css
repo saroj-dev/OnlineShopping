@@ -161,5 +161,6 @@ button:hover{
 
 	.product_extraContainer{
 		align-items: center;
+		color: rgb(204, 45, 45);
 	}
 }
