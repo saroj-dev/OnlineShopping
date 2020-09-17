@@ -14,6 +14,16 @@
 
 }
 
+/* fotter */
+footer{
+    margin-top: 50px;
+    display: grid;
+    background: #333;
+    color: #fff;
+    /* min-height: 200px; */
+    place-items: center;
+    z-index: -1;
+}
 body{
     /* background: #e2e2e2; */
     width: 100%;
@@ -32,9 +42,12 @@ body{
     display: grid;
     grid-template-columns: minmax(30px ,40px);
     align-content: center;
-    position: sticky;
+    position: fixed;
     top: 0;
-    left: 50px;
+    left: 0px;
+    width: 100%;
+    padding-left: 50px;
+    height: 70px;
     /* box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.144); */
 }
 .open{
@@ -105,6 +118,7 @@ display: none;
 }
 .rightnav{
     position: fixed;
+    
     right: 5%;
     display: flex;
     justify-content: center;
@@ -149,7 +163,8 @@ display: none;
 
 @media only screen and (max-width:600px){
     .rightnav {
-        bottom: 0;
+        position: fixed;
+        bottom: 0 !important;
         background:#e8e8e8;
         left: 0;
         width: 100%;
@@ -211,3 +226,90 @@ display: none;
 .this_is_dot{
     margin-top: 30px;
 }
+
+
+/* products section. */
+
+.product_laptop{
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows:1fr ;
+    /* background: #717171; */
+}
+
+/* products section. */
+/* del laptop style */
+ .laptopContainer{
+     background: #e2e2e2;
+     border-radius: 20px;
+     padding: 20px;
+     display: grid;
+     grid-template-columns: repeat(auto-fit,minmax(100px,300px));
+     grid-template-rows: 20px minmax(100px,400px);
+     grid-auto-rows:minmax(100px,400px);
+     grid-row-gap: 50px;
+     grid-column-gap: 20px;
+    }
+    .laptopContainer > .title{
+     margin: 0 auto;
+     font-size: x-large;
+     color: #333;
+     grid-row: 1/2;
+     grid-column: 1/-1;
+ }
+ .laptopContainer .container{
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px #3837374f;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: 0.8fr 0.7fr;
+     background: rgb(255, 255, 255);
+     transition:0.5s all;
+ }
+ .laptopContainer .container:hover{
+     cursor: pointer;
+     box-shadow: 0px 0px 20px #383737a2;
+
+ }
+ .laptopContainer .container .img{
+     background: url("../img/laptop.png");
+     background-size: 150%;
+     background-position: 75%;
+    border-radius: 5px;
+    }
+
+ .btm{ 
+     padding: 10px 20px;
+     text-transform: capitalize;
+     display: flex;
+    flex-direction: column;
+    }
+
+ .btm > .heading
+{
+
+    color: #333;
+    font-weight: bolder;
+    font-size: 1.6em;
+}
+ 
+small{
+    font-size: 1.1em;
+}
+.high_price{
+    font-size: 1.1em;
+    color: rgb(255, 125, 125);
+}
+
+.btm .btn_add_cart{
+    background: #e08256;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    
+}
+ 
+/* del aptop end */
