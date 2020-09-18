@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="product1.css">
+    <link rel="stylesheet" href="searchFilter.css">
 </head>
 <body>
 
@@ -63,6 +64,20 @@
 </div>
         </div>
         <div class="product_page_delevery_option_container">
+					<div class='product_page_display_address'>
+						
+					</div>
+					<button onclick="showFilter()">Pick address</button>
+
+					<div class="search__container">
+						<div class="search__dir">
+			
+						</div>
+						<input type="text" class='search__input' onkeyup="filterOut(this)" placeholder="Select Region" />
+						<div class="search__options">
+							
+						</div>
+					</div>
 
         </div>
     </div>
@@ -70,6 +85,6 @@
 
 </body>
 <script src="./product.js">
-
 </script>
+<script src='./searchFilter.js'></script>
 </html>
