@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="product1.css">
+    <link rel="stylesheet" href="searchFilter.css">
+</head>
+<body>
+
+
+
+    <div class="product_page_main_container">
+        <div class="product_page_img_container">
+            <div class="img">
+                <img src="../img/pexels-veeterzy-303383.png" alt="">
+                <img src="../img/mobile3.png" alt="">
+                <img src="../img/mobile.png" alt="">
+            </div>
+            <div class="img_control">
+                <img src="../img/pexels-veeterzy-303383.png" alt="">
+                <img src="../img/mobile3.png" alt="">
+                <img src="../img/mobile.png" alt="">
+            </div>
+        </div>
+        <div class="product_page_product_container">
+            <div class="product_title">
+               <h1> this is the title of the product </h1>
+               <div class="left"><img src="../svg/share.svg" height="20"  width="20" alt=""> &nbsp;&nbsp;
+                <img src="../svg/heartr.svg"  height="20"  width="20" alt=""> 
+            </div>
+            
+            <p><small>
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/starGray.svg" height="15" width="15">
+            </small> <span> &nbsp;&nbsp;ratting</span></p>
+        </div>
+        
+        <!-- product title end here -->
+        <div class="price_quantity">
+            <div class="hr"></div>
+            <textarea id="url" rows="1" cols="30"></textarea>
+            RS. 1000
+         
+        <br>
+
+        
+    </div>
+            <small class="qty">
+                Quantity <span class="qty_span sub" onclick="add_sub(-1)">-</span>
+                <input class="input_container" type="number" min="1" max="5" value="1" disabled>
+                <span class="qty_span add" onclick="add_sub(1)">+</span>
+            </small>
+<div class="btn_section">
+    <div class="buyNow"> buy now
+    </div>
+    <div class="AddToCart">
+        add to cart
+    </div>
+</div>
+        </div>
+        <div class="product_page_delevery_option_container">
+					<div class='product_page_display_address'>
+
+					</div>
+					<button onclick="showFilter()">Pick address</button>
+
+					<div class="search__container">
+						<div class="search__dir">
+			
+						</div>
+						<input type="text" class='search__input' onkeyup="filterOut(this)" placeholder="Select Region" />
+						<div class="search__options">
+							
+						</div>
+					</div>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="./product.js">
+</script>
+<script src='./searchFilter.js'></script>
+</html>
