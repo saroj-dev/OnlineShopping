@@ -264,9 +264,6 @@ const filterOut = (e) => {
 		})
 	})
 })();
-const showFilter = () => {
-	document.querySelector('.search__container').style.display = 'block';
-}
 
 window.onclick = function(event) {
   if (!event.target.matches('.search__container')) {
@@ -275,3 +272,9 @@ window.onclick = function(event) {
     	document.querySelector('.search__container').style.display ='none'
     }
 }
+
+
+const showFilter = () => {
+	document.querySelector('.search__container').style.display = 'block';
+}
+
