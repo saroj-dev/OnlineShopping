@@ -268,3 +268,10 @@ const showFilter = () => {
 	document.querySelector('.search__container').style.display = 'block';
 }
 
+window.onclick = function(event) {
+  if (!event.target.matches('.search__container')) {
+    let elements = document.querySelector(".search__container").childNodes
+
+    	document.querySelector('.search__container').style.display ='none'
+    }
+}
