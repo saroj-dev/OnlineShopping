@@ -1047,6 +1047,16 @@ const filterOut = (e) => {
 		})
 	})
 })();
+
+// window.onclick = function(event) {
+//   if (!(event.target.matches('.search__container' && event.target.matches('.')) {
+//     let elements = document.querySelector(".search__container").childNodes
+
+//     	document.querySelector('.search__container').style.display ='none'
+//     }
+// }
+
+
 const showFilter = () => {
 	document.querySelector('.search__container').style.display = 'block';
 }
