@@ -17,6 +17,9 @@
                 <img src="../img/pexels-veeterzy-303383.png" alt="">
                 <img src="../img/mobile3.png" alt="">
                 <img src="../img/mobile.png" alt="">
+                <br>
+                <br><br>
+                <div class="hr"></div>
             </div>
             <div class="img_control">
                 <img src="../img/pexels-veeterzy-303383.png" alt="">
@@ -66,11 +69,12 @@
         <div class="product_page_delevery_option_container">
 					<div class='product_page_display_address'>
 
-					</div>
-					<button onclick="showFilter()">Pick address</button>
-
+					</div><div class="btn_con_add_change"onclick="showFilter()"> Choose Your Shipping address
+                        <button class='button_addres_changer_adder' onclick="showFilter()">Add ></button>
+                    </div>
 					<div class="search__container">
 						<div class="search__dir">
+                            <div class="right" onclick="cross()">X</div>
 			
 						</div>
 						<input type="text" class='search__input' onkeyup="filterOut(this)" placeholder="Select Region" />
@@ -78,10 +82,107 @@
 							
 						</div>
 					</div>
+                    <div class="number_con">
+                        <div class="flg"><img src="../img/flag.png"></div><span>+977</span><input
+                        type="number" name="num"  id="number_inp_user" placeholder="Phone Number"
+                        required>
+                    </div>
+                    <div class="freeShiping">
+                        <img src="../svg/shipping-fast-solid.svg" alt="" srcset="">
+                       &nbsp;&nbsp; Free Shipping.
+                    </div>
+
+                    <div class="cash_on_deli">
+                        <img src="../svg/money-bill-wave-solid.svg" alt="" srcset="">
+                          &nbsp;&nbsp;  Cash on Delivery
+                    </div>
+                    <div class="ship_under_1week">
+                        <img src="../svg/truck-loading-solid.svg" alt="">
+                      &nbsp;&nbsp;  Shipping under 1 Week.
+                    </div>
 
         </div>
     </div>
+    
+    
+            <div class="product_page_features_section">
+                <div class="features_container">
+                    <div class="tittle_fratures">
+                        Features & Specifications.
+                    </div>
+                    <span class="span_star">*</span> <span>ram : 200tb </span>
+                    <br>
+                    <span class="span_star">*</span> <span>price: RS 2 only</span>
+                    <br>
+                </div>
 
+                <div class="img_container">
+                <img src="../img/pexels-veeterzy-303383.png" alt="">
+                <img src="../img/mobile3.png" alt="">
+                <img src="../img/mobile.png" alt="">
+                </div>
+
+            </div>
+
+            <div class="suggested__products__container">
+                <div class="title_suggested">
+                     similar products :
+                </div>
+                    <div class="products_suggested_pro">
+                    <div class="container">
+                        <div class="img"></div>
+                        <div class="btm">
+                            <h2 class="heading">Dell XPS 13 (2020) </h2>
+                         <small>
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/starGray.svg" height="15" width="15">
+            
+                         </small>
+                         <small class="orginal_price">
+                             <small class="high_price">
+                                $1000
+                            </small>
+                             $849
+                            </small>
+                            <br>
+                            <a class="btn_add_cart" href="#cart">
+                                 Add to cart <i class="fas fa-cart-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+               
+            
+                    <div class="container">
+                        <div class="img"></div>
+                        <div class="btm">
+                            <h2 class="heading">Dell XPS 13 (2020) </h2>
+                         <small>
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/startYellow.svg" height="15"  width="15">
+                             <img src="../svg/starGray.svg" height="15" width="15">
+            
+                         </small>
+                         <small class="orginal_price">
+                             <small class="high_price">
+                                $1000
+                            </small>
+                             $849
+                            </small>
+                            <br>
+                            <a class="btn_add_cart" href="#cart">
+                                 Add to cart <i class="fas fa-cart-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                 
+            
+                </div>
+            </div>
 
 </body>
 <script src="./product.js">

@@ -28,6 +28,7 @@ body{
     /* background: #e2e2e2; */
     width: 100%;
     overflow-x: hidden;
+    /* background: #333; */
 
 }
 
@@ -244,13 +245,14 @@ display: none;
      border-radius: 20px;
      padding: 20px;
      display: grid;
-     grid-auto-rows: 500px;
+     grid-auto-rows: 1fr;
      -ms-grid-columns: (minmax(200px, 300px))[auto-fit];
      grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
     grid-gap: 20px;
      overflow: hidden;
      margin-top: 20px;
     place-items: center;
+    z-index: -1;
  
     }
  .title{
@@ -269,19 +271,16 @@ display: none;
      background: rgb(255, 255, 255);
      transition:0.5s all;
      min-height: 400px;
+     padding: 10px;
  } 
  .laptopContainer .container:hover{
      cursor: pointer;
      box-shadow: 0px 0px 20px #383737a2;
 
  }
- .laptopContainer .container .img{
-     background: url("../img/laptop.png");
-     background-size: 150%;
-     background-position: 75%;
-    border-radius: 5px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+ .laptopContainer .container> img{
+     max-width:300px;
+     min-width: 200px;
 
     }
 
@@ -297,7 +296,7 @@ display: none;
 
     color: #333;
     font-weight: bolder;
-    font-size: 1.6em;
+    font-size: 20px;
 }
  
 small{
