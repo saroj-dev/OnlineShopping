@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="par">
+    bagmati
+    <center>
+      <div class="ch">location1</div>
+    <div class="ch">location2</div>
+    <div class="ch">location3</div>
+    </center>
+  </div>
+  <div class="par">
+    2
+    <center><div class="ch">1</div>
+      <div class="ch">2</div>
+      <div class="ch">3</div></center>
+  </div>
+  <div class="par">
+    3 
+    <center><div class="ch">1</div>
+      <div class="ch">2</div>
+      <div class="ch">3</div>
+    </center>
+  </div>
+
+</body>
+
+<script>
+
+var par = document.querySelectorAll(".par");
+par.forEach(function (e,i) {
+  e.addEventListener("click",function(){
+
+var childens = e.children.item(0);
+for(j=0 ; j<childens.childElementCount; j++){
+childens.children.item(j).forEach(function (elem,insdex) {
+  elm.addEventListener("click",function () {
+    console.log(elm.innerHTML)
+  })
+})
+}
+  })
+})
+  
+</script>
+</html>
