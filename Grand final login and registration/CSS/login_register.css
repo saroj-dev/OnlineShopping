@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+     
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+ 
+html,body{
+  display: grid;
+  min-height: 100vh;
+  width: 100%;
+  place-items:center;
+  /* background-color: #69a8f; */
+
+}
+::selection{
+  background: transparent;
+  color: #f00;
+}
+.wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 15px;
+  display:flex;
+  box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.226);
+  /* border: 2px solid red; */
+}
+.wrapper .title{
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+	padding:0px 20px;
+  border-radius: 15px 15px 0 0;
+  /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+}
+.wrapper form{
+  padding: 10px 30px 50px 30px;
+ 
+}
+.wrapper form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  margin: 0 -10px;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: #4158d0;
+}
+.wrapper form .field label{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+form .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+
+}
+ 
+form .content label{
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+form .content .pass-link{
+  color: "";
+}
+form .field input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+  margin: 0px 0px;
+
+}
+form .field input[type="submit"]:active{
+  transform: scale(0.5);
+}
+form .signup-link{
+  color: #262626;
+  margin-top: 20px;
+  text-align: center;
+}
+form .pass-link a,
+form .signup-link a{
+  color: #4158d0;
+  text-decoration: none;
+}
+form .pass-link a:hover,
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+input{
+  border: 0;
+}
+
+
+
+/*code added by aashish */
+.wrapper .form__image img{
+	width:400px;
+}
+
+.form{
+	/* margin-top:0px; */
+	text-align:center;
+}
+
+.wrapper{
+	width:900px;
+	align-items: center;
+	justify-content: space-evenly;
+	flex:1;
+	padding:20px;
+}
+
+/* .wrapper .form{
+	width: 50%;
+} */
+
+/* 
+.abcRioButton .abcRioButtonLightBlue{
+	width:100%;
+	text-align:center;
+}
+*/
+
+.abcRioButtonContentWrapper{
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #4169c0, #a650d0);
+  transition: all 0.3s ease;
+  margin: 0px 0px;
+	height: 100%;
+  width: 100%;
+  outline: none;
+	appearance: push-button;
+	user-select: none;
+	text-align: center;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	text-rendering: auto;
+	border-radius:25px;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	font-size:2rem;
+} 
+
+.abcRioButton,.abcRioButtonLightBlue{
+	-webkit-border-radius: 25px !important;
+	border-radius:25px !important;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	box-sizing: border-box;
+	text-align:center;
+}
+
+/* .abcRioButtonSvgImageWithFallback,.abcRioButtonIconImage,.abcRioButtonIconImage18{
+	width:30px;
+	height:30px;
+} */
+
+.abcRioButtonContents{
+	font-size:25px;
+}
+
+.or{
+    position:relative;
+    font-size:1.5rem;
+    font-family:sans-serif;
+    font-weight:bolder;
+		margin:20px 10px;
+}
+
+.or:before{
+    content:'';
+    position: absolute;
+    top:50%;
+    transform:translate(-110%,-50%);
+    height: 3px;
+    background:#fafa;
+    width: 100px;
+}
+
+.or:after{
+    content:'';
+    position: absolute;
+    top:50%;
+    transform:translate(10%,-50%);
+    height: 3px;
+    background:#fafa;
+    width: 100px;
+}
+
+
+
+/* Halka responsive */
+@media screen and (max-width:960px){
+	.wrapper{
+		width:700px;
+	}
+
+	html{
+		font-size:80%;
+	}
+
+	.wrapper .form__image img{
+		width:200px;
+	}
+}
+
+
+@media screen and (max-width:790px){
+	.wrapper{
+		width:90%;
+		justify-content:center;
+	}
+
+	html{
+		font-size:70%;
+	}
+
+	.wrapper .form__image img{
+		display:none;
+	}
+}
+
+@media screen and (min-width:90px){
+	form .field input[type="submit"],
+	.abcRioButtonContentWrapper,
+	.wrapper .title{
+		background: #e08256;
+	}
+
+	form .field input[type="submit"]:hover{
+		background-position: right center;
+	}
+}
+
+
+@media screen and (max-width:650px){
+	.wrapper{
+		width:auto;
+	}
+
+	.wrapper form{
+		padding: 10px 10px 50px 10px;
+	}
+}
+.hide{
+  max-width: 450px;
+}
+.header{
+  text-align: right;
+}
