@@ -16,8 +16,8 @@ function printLaptop($key , $dirToImg){
          $laptopImage = $row["laptopImages"];
          $laptopFrontImage = $row["laptopFrontImages"]; 
          $laptopFeatures = $row["laptopFeatures"]; 
-         $laptopOrginalPrice = $row["laptopPriceDiscounted"] ;
-         $laptopDiscountPrice  = $row["laptopPriceOrginal"]; 
+         $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
+         $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
          $n =  $row["laptopRating"];
          if($count<4){
          ?>
