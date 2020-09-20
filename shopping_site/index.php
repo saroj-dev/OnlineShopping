@@ -158,11 +158,15 @@
         <div class="laptopContainer">
         <?php 
             include "laptop.php";
-            printLaptop();
+            $redirect = '<button class="div1"> <a href="product/allproducts.php?group=DellGroup&Name=laptop">See more </a>  </button>';
+            printLaptop("Asus" , "img/");
         ?>
         
     </div>
     <!--this is for end of the dell company.-->
+    <button>
+        <?php echo $redirect;?>
+    </button>
 </div>
 
 
@@ -191,6 +195,16 @@
 
  
 </body>
+<script>
+document.querySelector("button").addEventListener("click",function () {
+    
+
+
+})
+
+
+
+</script> 
 
 <script src="js/index.js"></script>
 <script src="js/font-awsome.js"></script>

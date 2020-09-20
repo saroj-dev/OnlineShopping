@@ -1,9 +1,14 @@
 <?php 
 
-function printLaptop(){
+function printLaptop($key , $dirToImg){
     include "connection.php";
-    $select = " SELECT * FROM  laptops";
+    if($key!=0){
+        $select = "SELECT * FROM  `laptop` WHERE keyword = $key"  ;
+    }else{
+    $select = "SELECT * FROM  `laptop`" ;
+    }
     $result = $connection->query($select);
+    $count = 0; 
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
@@ -14,9 +19,10 @@ function printLaptop(){
          $laptopOrginalPrice = $row["laptopPriceDiscounted"] ;
          $laptopDiscountPrice  = $row["laptopPriceOrginal"]; 
          $n =  $row["laptopRating"];
+         if($count<4){
          ?>
         <div class="container">
-         <img src="img/<?php echo $laptopFrontImage ?>">
+         <img src="<?php echo "{$dirToImg}{$laptopFrontImage}" ;?>">
         <div class="btm">
             <h2 class="heading"><?php echo $laptopName ; ?></h2>
          <small>
@@ -25,7 +31,6 @@ function printLaptop(){
                 echo("⭐");
                 $n = $n-1;
             }
-
             ?>
          </small>
          <small class="orginal_price">
@@ -40,16 +45,15 @@ function printLaptop(){
             </a>
         </div>
     </div>
-    
 
 
 <?php
 
-
+$count++;
 
         }
       }  
-
+    }
  
 
 

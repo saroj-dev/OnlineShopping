@@ -249,11 +249,16 @@ display: none;
      -ms-grid-columns: (minmax(200px, 300px))[auto-fit];
      grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
     grid-gap: 20px;
-     overflow: hidden;
-     margin-top: 20px;
-    place-items: center;
+    overflow: hidden;
+    margin-top: 20px;
     z-index: -1;
- 
+    width: 90%;
+    grid-gap:40px ;
+    /* grid-row-gap:20px ; */
+    /* place-items: center ; */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     }
  .title{
      font-size: x-large;
