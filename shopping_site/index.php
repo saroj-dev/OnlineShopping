@@ -158,7 +158,7 @@
         <div class="laptopContainer">
         <?php 
             include "laptop.php";
-            $redirect = '<button class="div1"> <a href="product/allproducts.php?group=DellGroup&Name=laptop">See more </a>  </button>';
+            $redirect = '<button class="div1"> <a href="product/allproducts.php?group=dell&Name=laptop">See more </a>  </button>';
             printLaptop("Asus" , "img/");
         ?>
         
