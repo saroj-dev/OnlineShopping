@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="shopping_site/css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
 </head>
     <body>
@@ -12,80 +12,16 @@
 
         <!-- Nav bar -->
         <div class="va">
-            <div class="nav">
-          <div class="open">
-              <!-- svg -->
-            <svg  id="svg_icon_bar "aria-hidden="true" focusable="false" data-prefix="fas"   viewBox="0 0 448 512">
-                <path  d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
-                </path>
-            </svg>
-              <!-- svg -->
-          </div>
-         <!-- right slide  -->
-        <div class="rightnav">
-            <div class="myOrder">
-                <a href="#Myorder">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-            <div class="search">
-                <div class="search__con">
-                <input type="text" name="search" id="search_id" autocomplete="off">
-                <i class="fas fa-search"></i>
-            </div>
-            </div>
-            <div class="user_account">
-                <a href="#Profile">
-                    <i class="fas fa-user-circle"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-         <!-- right slide  -->
-          <div class="side_slide_nav">
+        <?php
 
-              <ul>
-                    <div class="shop">
-                        <h3>
-                            shop by category &nbsp; &nbsp; &nbsp;  &#8620;
-                        </h3>
-                    </div>
+include "nav.html";
+        ?>
 
-                        <a href="#Laptop" class="cat nav_ko">
-                            <li>
-                                <i class="fas fa-laptop"></i>    Laptop
-                            </li>
-                          </a>
-                       
-                          <a href="#Mobile" class="cat nav_ko">
-                            <li>
-                                <i class="fas fa-mobile"></i>
-                                Mobile
-                            </li>
-                          </a>
 
-                   
-                          <a href="#Myorder" class="nav_ko">
-                            <li><i class="fas fa-shopping-cart"></i>
-                                My Orders
-                            </li>
-                        </a>
-
-                        <a href="#Profile" class="nav_ko">
-                            <li>
-                                <i class="fas fa-user-circle"></i>
-                                Profile
-
-                            </li>
-                          </a>
-              </ul>
-          </div>
-        </div>
-    
+</div>
             <!-- main content -->
         <div class="main">
-         
-
+        
 <!-- code here the main one -->
 
 <section class="sectio_one_image_slider">
@@ -95,32 +31,32 @@
         <div class="slideshow-inner">
           <div class="mySlides fade">
         
-            <img  src='shopping_site/img/laptop.png' style='width: 100%;' alt="sally lightfoot crab"/>
+            <img  src='img/laptop.png' style='width: 100%;' alt="sally lightfoot crab"/>
             <div class="text">Exclusive, offer</div>
           </div>
         
           <div class="mySlides fade">
         
-            <img  src='shopping_site/img/mobile.png' style='width: 100%;' alt="fighting nazca boobies"/>
+            <img  src='img/mobile.png' style='width: 100%;' alt="fighting nazca boobies"/>
             <div class="text">Place the order</div>
           </div>
         
           <div class="mySlides fade">
         
-            <img  src='shopping_site/img/mobile1.png' style='width: 100%;' alt="otovalo waterfall"/>
+            <img  src='img/mobile1.png' style='width: 100%;' alt="otovalo waterfall"/>
             <div class="text">get the trend in your hand</div>
           </div>
         
           <div class="mySlides fade">
         
-            <img  src='shopping_site/img/mobile3.png' style='width: 100%;' alt="pelican"/>
+            <img  src='img/mobile3.png' style='width: 100%;' alt="pelican"/>
             <div class="text">Make an amazing deal with us.</div>
           </div>
           
           </div>
           <div class="mySlides fade">
         
-            <img  src='shopping_site/img/pexels-veeterzy-303383.png' style='width: 100%;' alt="pelican"/>
+            <img  src='img/pexels-veeterzy-303383.png' style='width: 100%;' alt="pelican"/>
             <div class="text">buy once , remember forever</div>
           </div>
           
@@ -157,16 +93,14 @@
             </div>
         <div class="laptopContainer">
         <?php 
-            include "shopping_site/laptop.php";
-            $redirect = '<button class="div1"><a href="shopping_site/product/allproducts.php?group=dell&Name=laptop">See more </a>  </button>';
-            printLaptop("Asus" , "shopping_site/img/");
+            include "laptop.php";
+            $redirect = '<a class="a" href="product/allproducts.php?group=dell&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
+            printLaptop("Asus" , "img/");
         ?>
         
     </div>
     <!--this is for end of the dell company.-->
-    <button>
-        <?php echo $redirect;?>
-    </button>
+        <?php echo  '<a class="a" href="product/allproducts.php?group=dell&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';?>
 </div>
 
 
@@ -195,9 +129,9 @@
 
  
 </body>
-<script src="shopping_site/js/index.js"></script>
-<script src="shopping_site/js/font-awsome.js"></script>
-
+<script src="js/index.js"></script>
+<script src="https://kit.fontawesome.com/cc8ed28d8b.js" crossorigin="anonymous"></script>
+<script src="js/nav.js"></script>
 <!-- this is for the script to load the php-->
 
 <script>
@@ -206,14 +140,14 @@
 
 search_query.addEventListener("keypress", function(e){
     if(e.key == 'Enter'){
-        window.location.href = "shopping_site/search.php?search_query="+search_query.value;
+        window.location.href = "search.php?search_query="+search_query.value;
         console.log(window.location.href)
     }
 })
 
 
     search_button.addEventListener("click",function() {
-        console.log(window.location.href)
+        window.location.href = "?search_query="+search_query.value;
     })
 
 </script>

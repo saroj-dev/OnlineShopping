@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="stylesheet" href="../css/searchFilter.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="product_page_main_container">
+        <div class="product_page_img_container">
+            <div class="img">
+                <img src="../img/pexels-veeterzy-303383.png" alt="">
+                <img src="../img/mobile3.png" alt="">
+                <img src="../img/mobile.png" alt="">
+                <br>
+                <br><br>
+                <div class="hr"></div>
+            </div>
+            <div class="img_control">
+
+                <img src="../img/pexels-veeterzy-303383.png" alt="">
+                <img src="../img/mobile3.png" alt="">
+                <img src="../img/mobile.png" alt="">
+            </div>
+        </div>
+        <div class="product_page_product_container">
+            <div class="product_title">
+               <h1> this is the title of the product </h1>
+               <div class="left"><img src="../svg/share.svg" height="20"  width="20" alt=""> &nbsp;&nbsp;
+                <img src="../svg/heartr.svg"  height="20"  width="20" alt=""> 
+            </div>
+            
+            <p><small>
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/startYellow.svg" height="15"  width="15">
+                <img src="../svg/starGray.svg" height="15" width="15">
+            </small> <span> &nbsp;&nbsp;ratting</span></p>
+        </div>
+        
+        <!-- product title end here -->
+        <div class="price_quantity">
+            <div class="hr"></div>
+            <textarea id="url" rows="1" cols="30"></textarea>
+            RS. 1000
+         
+        <br>
+
+        
+    </div>
+            <small class="qty">
+                Quantity <span class="qty_span sub" onclick="add_sub(-1)">-</span>
+                <input class="input_container" type="number" min="1" max="5" value="1" disabled>
+                <span class="qty_span add" onclick="add_sub(1)">+</span>
+            </small>
+<div class="btn_section">
+    <div class="buyNow"> buy now
+    </div>
+    <div class="AddToCart">
+        add to cart
+    </div>
+</div>
+        </div>
+        <div class="product_page_delevery_option_container">
+					<div class='product_page_display_address'>
+
+					</div><div class="btn_con_add_change"onclick="showFilter()"> Choose Your Shipping address
+                        <button class='button_addres_changer_adder' onclick="showFilter()">Add ></button>
+                    </div>
+					<div class="search__container">
+						<div class="search__dir">
+                            <div class="right" onclick="cross()">X</div>
+			
+						</div>
+						<input type="text" class='search__input' onkeyup="filterOut(this)" placeholder="Select Region" />
+						<div class="search__options">
+							
+						</div>
+					</div>
+                    <div class="number_con">
+                        <div class="flg"><img src="../img/flag.png"></div><span>+977</span><input
+                        type="number" name="num"  id="number_inp_user" placeholder="Phone Number"
+                        required>
+                    </div>
+                    <div class="freeShiping">
+                        <img src="../svg/shipping-fast-solid.svg" alt="" srcset="">
+                       &nbsp;&nbsp; Free Shipping.
+                    </div>
+
+                    <div class="cash_on_deli">
+                        <img src="../svg/money-bill-wave-solid.svg" alt="" srcset="">
+                          &nbsp;&nbsp;  Cash on Delivery
+                    </div>
+                    <div class="ship_under_1week">
+                        <img src="../svg/truck-loading-solid.svg" alt="">
+                      &nbsp;&nbsp;  Shipping under 1 Week.
+                    </div>
+
+        </div>
+    </div>
+    
+    
+            <div class="product_page_features_section">
+                <div class="features_container">
+                    <div class="tittle_fratures">
+                        Features & Specifications.
+                    </div>
+                    <span class="span_star">*</span> <span>ram : 200tb </span>
+                    <br>
+                    <span class="span_star">*</span> <span>price: RS 2 only</span>
+                    <br>
+                </div>
+
+                <div class="img_container">
+                <img src="../img/pexels-veeterzy-303383.png" alt="">
+                <img src="../img/mobile3.png" alt="">
+                <img src="../img/mobile.png" alt="">
+                </div>
+
+            </div>
+
+            <div class="suggested__products__container">
+                <div class="title_suggested">
+                     similar products :
+                </div>
+                    <div class="laptopContainer">
+                
+                        
+                    <?php
+                            include "ProductsCollection.php";
+                            showProduct(0 , "../img/");
+                    ?>
+
+
+
+
+
+
+            
+                </div>
+            </div>
+
+</body>
+<script src="./product.js">
+</script>
+<script src='./searchFilter.js'></script>
+</html>
