@@ -11,12 +11,13 @@ include "../connection.php";
 if($check!=0){
     $select = "SELECT * FROM  $table";
 }else{
-    $select = "SELECT * FROM  $table WHERE keyword=$check";
+    $select = "SELECT * FROM  $table WHERE keyword=$check  ";
 }
 $result = $connection->query($select);
 
 if($result->num_rows > 0){
     while ($row = $result->fetch_assoc()) {
+        $product_id = $row['id_no'];
         $productName = $row["{$table}Name"] ;
         $productImage = $row["{$table}Images"];
         $productFrontImage = $row["{$table}FrontImages"]; 
@@ -27,6 +28,7 @@ if($result->num_rows > 0){
 
 ?>  
             <div class="container">
+            <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
             <img class="theImg_from_db_style" src="<?php echo "{$dirToImg}{$productFrontImage}" ;?>">
                 <div class="btm">
                     <h2 class="heading"><?php

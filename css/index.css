@@ -22,7 +22,7 @@ footer{
     color: #fff;
     /* min-height: 200px; */
     place-items: center;
-    z-index: -1;
+    z-index: 10;
 }
 body{
     /* background: #e2e2e2; */
@@ -50,7 +50,7 @@ body{
     padding-left: 10px;
     height: 70px;
     background: #333;
-    z-index: 1000;
+    z-index: 20;
     /* box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.144); */
 }
 .open{
@@ -73,6 +73,7 @@ body{
     top: 70px;
     left: -450px;
     overflow: hidden;
+    z-index: 11;
 }
 .side_slide_nav > ul{
     display: flex;
@@ -129,7 +130,7 @@ display: none;
     font-size: 30px;
     width: 300px;
     max-width: 750px;
-
+    z-index: 40;
 }
 .rightnav  input {
     border: none;
@@ -140,7 +141,6 @@ display: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     background: #f1f1f1; 
-    z-index: 100;
 }
 .myOrder > a , .user_account > a , .search i{
     color: rgb(88, 88, 88);
@@ -174,6 +174,23 @@ display: none;
         display: flex;
         justify-content: space-around;
     }
+
+
+     .suggested__products__container{
+         width: 100%;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
+        .laptopContainer{
+            width: 100%;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
 }
 .sectio_one_image_slider{
     max-width: 100vw;
@@ -185,7 +202,7 @@ display: none;
 .slideshow-container {
     max-width: 1000px;
     position: relative;
-    z-index:-1;
+   
 }
 
 .mySlides {
@@ -254,7 +271,6 @@ display: none;
     grid-gap: 20px;
     overflow: hidden;
     margin-top: 20px;
-    z-index: -1;
     width: 90%;
     grid-gap:40px ;
     /* grid-row-gap:20px ; */
@@ -268,24 +284,20 @@ display: none;
      color: #333;
      text-align: center;
  }
- .laptopContainer .container{
+ .container{
      min-width: 300px;
      max-width: 300px;
     border-radius: 5px;
     box-shadow: 0px 0px 20px #3837374f;
-     display: grid;
-     grid-template-columns: 1fr;
-     grid-template-rows: 0.8fr 0.7fr;
+     display: block;
      background: rgb(255, 255, 255);
      transition:0.5s all;
-     min-height: 400px;
      padding: 10px;
-     z-index: 100;
+     z-index: 10;
+     margin: 0 auto;
  } 
  .laptopContainer .container:hover{
-     cursor: pointer;
      box-shadow: 0px 0px 20px #383737a2;
-
  }
  .laptopContainer .container> img{
      max-width:300px;
@@ -302,12 +314,16 @@ display: none;
 
  .btm > .heading
 {
-
+    cursor: pointer;
     color: #333;
     font-weight: bolder;
     font-size: 20px;
 }
  
+.btm > .heading:hover{
+    color: rgb(22, 22, 22);
+
+}
 small{
     font-size: 1.1em;
     color: rgb(0, 81, 255);

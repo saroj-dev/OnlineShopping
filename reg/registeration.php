@@ -1,4 +1,15 @@
 <?php
+ session_start();
+if(isset($_SESSION['is_login'])){
+    if(isset($_SESSION['previous_location'])){
+        header("Location:". $_SESSION['previous_location'] ." ");       
+    }else{
+    header("Location: ../index.php");
+    }
+}
+    else{
+
+
 include "connection.php";
 if (isset($_REQUEST['submit'])) {
     if ($_REQUEST['username'] == "" || $_REQUEST['email'] == "" || $_REQUEST['password'] == "") {
@@ -23,25 +34,38 @@ if (isset($_REQUEST['submit'])) {
                     if ($result_user->num_rows == 1) {
                         $error_mess = '<div class="not">Username Already taken . </div> ';
                     } else {
-                        $username = str_replace(' ', '', ($_REQUEST['username']));
-                        $email = str_replace(' ', '', ($_REQUEST['email']));
-                        $password = str_replace(' ', '', md5(($_REQUEST['password'])));
+                        //getting the variables and making them bullet proof:
+                    //   🎯🎯🎯
+                        $username =stripcslashes(str_replace(' ', '', ($_REQUEST['username']))) ;
+                        $email = stripcslashes(str_replace(' ', '', ($_REQUEST['email'])));
+                        $password =  stripcslashes( str_replace(' ', '', md5(($_REQUEST['password']))) );
+                        $email = mysqli_real_escape_string($con, $email);  
+                        $password = mysqli_real_escape_string($con, $password);
+                        $username = mysqli_real_escape_string($con, $username);
+
+
                         $lenpass = strlen($password); //len of pass
                         $lenuser = strlen($username); //len of username
                         if ($lenpass > 8) {
                             if ($lenuser > 8) {
-                                $insert = " INSERT INTO user_register(`username`, `email`, `password`)VALUES('$username','$email','$password')";
-                                $sucess = $con->query($insert); //advanced php syntax to fire insert query
+                                $insert = $con->prepare(" INSERT INTO user_register (`username`, `email`, `password`)VALUES(?,?,?)");
+                                $insert->bind_param("sss",$username , $email , $password);
+                                $sucess =$insert->execute(); //advanced php syntax to fire insert query
                                 if ($sucess) {
-                                  ?>
-                                  
-                                  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-                                    
-                                  </script>
-                                  <?php
-                                    $error_mess = '<div class="sucess">Account Created Sucessfully</div> ';
-                                    // setcookie("from-registration",$username, time()+ (120)); //usingcooking for registration..
-                                    // $redirect = ' <div class="centerlogin"> <span>Please Login Here</span> &nbsp; <a href="login.php">Login</a></div>';
+                                   
+                                    $error_mess = '<div class="sucess"> Created Sucessfully</div> ';
+                                    $_SESSION['is_login'] = true;
+                                    $_SESSION['email'] = $email;
+                                    if(isset($_SESSION['previous_location'])){
+                                    //   echo " <script> location.href = ". $_SESSION['previous_location']  . " </script> ";
+                                header("Location:". $_SESSION['previous_location'] ." ");       
+                                }else{
+                                header("Location: ../index.php");  
+
+                                    //   echo " <script> location.href = ../index.php ; </script> ";
+                                    }
+
+
                                 } else {
                                     $error_mess = '<div class="not">unable to create Account.</div> ';
                                 }
@@ -57,6 +81,7 @@ if (isset($_REQUEST['submit'])) {
         }
     }
 }
+    }
 ?>
 
   <!DOCTYPE html>

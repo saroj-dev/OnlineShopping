@@ -12,6 +12,7 @@ function printLaptop($key , $dirToImg){
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
+        $product_id = $row['id_no'];
          $laptopName = $row["laptopName"] ;
          $laptopImage = $row["laptopImages"];
          $laptopFrontImage = $row["laptopFrontImages"]; 
@@ -22,6 +23,7 @@ function printLaptop($key , $dirToImg){
          if($count<3){
          ?>
         <div class="container">
+        <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
          <img src="<?php echo "{$dirToImg}{$laptopFrontImage}" ;?>">
         <div class="btm">
             <h2 class="heading"><?php echo $laptopName ; ?></h2>

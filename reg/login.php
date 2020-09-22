@@ -1,17 +1,29 @@
 <?php
+ session_start();
+
+if(isset($_SESSION['is_login'])){
+if(isset($_SESSION['previous_location'])){
+  header("Location:". $_SESSION['previous_location'] ." ");       
+}else{
+header("Location: ../index.php");  
+}}
+else{
 include "connection.php";
 session_start();
 if(isset($_COOKIE['setthecookie'])){
   echo ' <script> alert("Please login first.."); </script> ';
-  header("Location:loginredirect.php");
+  header("Location:../index.php");
 
 }else{
   echo "  ";
 }
 if(isset($_REQUEST['submit'])){
-$email =  trim ($_REQUEST['email']);
-$password =  trim  (md5($_REQUEST['password']) );
-// echo md5($password);
+$email =  stripcslashes(trim ($_REQUEST['email']));
+$password =  stripcslashes(trim(md5($_REQUEST['password'])) );
+$email = mysqli_real_escape_string($con, $email);  
+$password = mysqli_real_escape_string($con, $password);
+
+
 if($_REQUEST['email'] == "" ||  $_REQUEST['password']==""){
   $error_mess = '<div class="not"> Please fill the form to login </div> ';
 }else{
@@ -20,11 +32,12 @@ $select = "SELECT email, password FROM user_register WHERE email = '".$email."' 
 $fire_select = $con->query($select);
 
 if($fire_select->num_rows > 0){
-  // $_SESSION['is_login'] = true;
-  // $_SESSION['email'] = $email;
-  setcookie("setthecookie","$email",time()+(86400)*30);
-  echo " <script> location.href = 'loginredirect.php'; </script> ";
-  // echo "Login sucessfully";
+  $_SESSION['is_login'] = true;
+  $_SESSION['email'] = $email;
+  if(isset($_SESSION['previous_location'])){
+    header("Location:". $_SESSION['previous_location'] ." ");       
+  }else{
+  header("Location: ../index.php");  }
   exit;
 }else{
   $error_mess = '<div class="warning"> Please enter corret email and pasword</div> ';
@@ -32,7 +45,7 @@ if($fire_select->num_rows > 0){
 }
 }
 
-}
+}}
 
   
 
