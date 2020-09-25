@@ -12,8 +12,7 @@ var add = document.querySelector(".add");
 var sub = document.querySelector(".sub");
 function add_sub(e){
     var input_value =  parseInt(document.querySelector(".input_container").value);
-
-    var add_sub_val = input_value + parseInt(e) ;
+    var add_sub_val = input_value + parseInt(e);
     if(add_sub_val < 11 &&  add_sub_val > 0){
         document.querySelector(".input_container").value = add_sub_val;
     }
@@ -25,10 +24,12 @@ img1.forEach(function (elm,i) {
     elm.addEventListener("click",function(){
         if(i==1){
             if(elm.getAttribute("src") == '../svg/heartr.svg'){
-                elm.setAttribute('src' , '../svg/heart-solid.svg')
+                elm.setAttribute('src' , '../svg/heart-solid.svg');
+                window.localStorage.setItem(window.location.search,"active");
             }
             else{
-                elm.setAttribute('src' , '../svg/heartr.svg')
+                elm.setAttribute('src' , '../svg/heartr.svg');
+                window.localStorage.removeItem(window.location.search);
             }
 
         }
@@ -42,3 +43,26 @@ img1.forEach(function (elm,i) {
         }
     })    
 })
+if(window.localStorage.getItem(window.location.search )== "active"){
+    
+    img1.forEach(function (elm,i) {
+      
+            if(i==1){
+                
+                    elm.setAttribute('src' , '../svg/heart-solid.svg');
+                    
+                }
+         
+        })
+}
+else{
+    img1.forEach(function (elm,i) {
+        
+            if(i==1){
+                
+                    elm.setAttribute('src' , '../svg/heartr.svg');
+                    
+                }
+            
+        })
+}

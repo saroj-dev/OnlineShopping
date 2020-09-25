@@ -5,3 +5,38 @@ if(!isset( $_COOKIE['setthecookie'])){
     echo  $_COOKIE['setthecookie'] ;
   }
 ?>
+if($cart['cart'] == $product_id){
+                           
+                            ?>
+
+                        <a class="btn_add_cart disabled " href="#cart">
+                            In the Cart <i class="fas fa-cart-plus"></i>
+                        </a>
+                        <?php
+                         
+                        }
+                            
+                       
+                        
+                   
+                else{
+                    ?>
+                        <a class="btn_add_cart " href="#cart">
+                            Add to cart <i class="fas fa-cart-plus"></i>
+                        </a>
+                    <?php
+                             
+
+                }
+            }
+            }
+         
+                else{
+                    ?>
+                        <a class="btn_add_cart " href="#cart">
+                            Add to cart <i class="fas fa-cart-plus"></i>
+                        </a>
+                    <?php
+                            echo $product_id;
+
+                }

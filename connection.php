@@ -1,4 +1,5 @@
 <?php 
+ 
 
 $database = "onlineshopping";
 $hostName = "localhost";

@@ -1,15 +1,14 @@
 <?php
 function send_data($data , $prev){
     include "connection.php";
-
     session_start();
 
     if(isset($_SESSION['is_login'])){
-        if(isset($_SESSION['previous_location'])){
-            header("Location:". $_SESSION['previous_location'] ." ");       
-        }else{
-        header("Location: ../index.php");
-        }
+    //     if(isset($_SESSION['previous_location_add_buy'])){
+    //         header("Location:". $_SESSION['previous_location_add_buy'] ." ");       
+    //     }else{
+    //     header("Location: ../index.php");
+    //     }
      
         $email = $_SESSION['email'];
         $send = $connection->prepare("INSERT INTO `userinfo`(`emailAddress`, `cart`) VALUES (? , ? )");
@@ -17,23 +16,35 @@ function send_data($data , $prev){
         if($send->execute()){
         if($prev == "i"){
             header("location:./index.php");
+            // echo "in the if statement";
            }
-           if($prev == "p"){
-               header("location:product/product.php");
-           }  
+           if($prev == 'p'){
+            //    echo "product/product.php". $_SESSION['previous_location_add_buy'];
+               header("location:product/product.php". $_SESSION['previous_location_add_buy']);
+            // echo "in the another if statement";
+        }  
+        if($prev == "all"){
+            header("location:product/allproducts.php". $_SESSION['previous_location_add_buy']);
+            // echo "data is " . $data;
+        }
       }
   else{
          
     }
     }
-     
-
- else{
-     header("location:reg/login.php");
     
- }
-}
+     else{
+         header("location:reg/login.php");
+        
+     }
+
+   }    
 
 send_data($_GET['addtocart'], $_GET['from']);
 
 ?>
+
+
+
+<!-- what is application software explain it's types? -->
+<!-- the software that is developed for the user need's is called application software -->

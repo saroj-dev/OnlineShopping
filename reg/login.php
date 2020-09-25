@@ -2,21 +2,14 @@
  session_start();
 
 if(isset($_SESSION['is_login'])){
-if(isset($_SESSION['previous_location'])){
-  header("Location:". $_SESSION['previous_location'] ." ");       
-}else{
-header("Location: ../index.php");  
-}}
+    if(isset($_SESSION['previous_location'])){
+      header("Location:". $_SESSION['previous_location'] ." ");       
+    }else{
+    header("Location: ../index.php");  
+    }
+  }
 else{
-include "connection.php";
-session_start();
-if(isset($_COOKIE['setthecookie'])){
-  echo ' <script> alert("Please login first.."); </script> ';
-  header("Location:../index.php");
-
-}else{
-  echo "  ";
-}
+include "connection.php"; 
 if(isset($_REQUEST['submit'])){
 $email =  stripcslashes(trim ($_REQUEST['email']));
 $password =  stripcslashes(trim(md5($_REQUEST['password'])) );
@@ -28,14 +21,18 @@ if($_REQUEST['email'] == "" ||  $_REQUEST['password']==""){
   $error_mess = '<div class="not"> Please fill the form to login </div> ';
 }else{
 
-$select = "SELECT email, password FROM user_register WHERE email = '".$email."' AND password = '".$password."'limit 1 ";
+$select = "SELECT email, password , username FROM user_register WHERE email = '".$email."' AND password = '".$password."'limit 1 ";
 $fire_select = $con->query($select);
 
 if($fire_select->num_rows > 0){
+  while($row = $fire_select->fetch_assoc()){
+    $userName = $row["username"];
+  }
   $_SESSION['is_login'] = true;
   $_SESSION['email'] = $email;
+  $_SESSION["userName"] = $userName;
   if(isset($_SESSION['previous_location'])){
-    header("Location:". $_SESSION['previous_location'] ." ");       
+    header("Location: ../". $_SESSION['previous_location'] ." ");       
   }else{
   header("Location: ../index.php");  }
   exit;

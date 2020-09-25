@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,7 +105,7 @@ include "nav.php";
         
     </div>
     <!--this is for end of the dell company.-->
-        <?php echo  '<a class="a" href="product/allproducts.php?group=dell&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';?>
+        <?php echo  $redirect?>
 </div>
 
 
@@ -133,6 +138,7 @@ include "nav.php";
 <script src="https://kit.fontawesome.com/cc8ed28d8b.js" crossorigin="anonymous"></script>
 <script src="js/nav.js"></script>
 <script src="js/redirect.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- this is for the script to load the php-->
 
@@ -167,21 +173,45 @@ container.forEach(function name(elm , i) {
 
 var addtoCart = document.querySelectorAll(".btn_add_cart");
 addtoCart.forEach(function(elm,i){
+    if(elm.classList.contains('disabled')){
+        elm.style.cursor = "not-allowed";
+        elm.style.opacity = "0.5";
+    } else{
         elm.addEventListener("click",function(){
-     var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     window.location.href= "send_data.php?addtocart="+cart+"&from=i";
+            var request = new XMLHttpRequest();
+            var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
+     <?php 
+    $_SESSION['previous_location_add_buy'] = "";
+     ?>
+         request.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+            if(elm.classList.contains("not_logged_in")){
+            window.location.href = "reg/login.php";
+            }else{
+            elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
+            elm.style.cursor = "not-allowed";
+           elm.style.opacity = "0.5";
+           elm.style.pointerEvents = "none";
+            }
+        }
+    };
+    request.open("GET","send_data.php?addtocart="+cart+"&from=p",true);
+    request.send();
     })
+    }
 })
 
-var addtoCart1 = document.querySelectorAll(".AddToCart");
-addtoCart.forEach(function(elm,i){
-        elm.addEventListener("click",function(){
-     var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     
-     window.location.href= "send_data.php?addtocart="+cart+"&from=i";
-    })
+document.querySelector(".fa-shopping-cart").addEventListener("click", function(){
+window.location.href = "show_cart.php";
+});
+
+
+document.querySelector(".fa-user-circle").addEventListener("click",function(){
+    window.location.href = "user_profile.php";
 })
- 
+
+
+
 </script>
  
 

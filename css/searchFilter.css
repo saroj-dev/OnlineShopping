@@ -10,6 +10,7 @@
 	left: 50%;
 	transform: translate(-50% , 5%);
 	box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.171);
+	 z-index: 102;
 }
 
 .search__container input{
@@ -66,7 +67,7 @@
 	cursor: pointer;
 
 }
-.btn_con_add_change > .button_addres_changer_adder{
+.btn_con_add_change > .button_addres_changer_adder  {
 	background: Transparent;
 	border: none;
 	outline: none;

@@ -56,9 +56,11 @@ if (isset($_REQUEST['submit'])) {
                                     $error_mess = '<div class="sucess"> Created Sucessfully</div> ';
                                     $_SESSION['is_login'] = true;
                                     $_SESSION['email'] = $email;
+                                    $_SESSION["userName"] = $username;
+
                                     if(isset($_SESSION['previous_location'])){
                                     //   echo " <script> location.href = ". $_SESSION['previous_location']  . " </script> ";
-                                header("Location:". $_SESSION['previous_location'] ." ");       
+                                header("Location:../". $_SESSION['previous_location'] ." ");       
                                 }else{
                                 header("Location: ../index.php");  
 
