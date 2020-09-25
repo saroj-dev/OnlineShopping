@@ -1,0 +1,19 @@
+.admin__popupContainer{
+    border-radius:5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    z-index:99;
+    /* max-width:95%; */
+}
+
+.admin__popupContainer::after{
+    content: '';
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.admin__popupImageDiv{
+    width:100%;
+}
+
+.admin__titleDiv input{
+    width:100%;
+}

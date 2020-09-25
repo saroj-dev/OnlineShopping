@@ -1,8 +1,6 @@
 <?php
     session_start();
     $INTHECART = array();
- 
-
 ?>
 
 <!DOCTYPE html>
@@ -647,24 +645,7 @@ document.querySelector("#number_inp_user").addEventListener("keydown",function(e
     }
     else{
         e.style.outline = "2px solid red";
-
         }
-
-console.log(e.value.length)
-
-
-    // if(e.value.length === 10 ){
-        
-    // }
-    // else{
-    // }
-    // if(e.value.length >= 10){
-    //     e.value = parseInt(e.value / 10);
-    //     e.style.outline  = "2px solid green";
-    // }
-
-
-
    }
 
 

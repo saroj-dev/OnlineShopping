@@ -38,7 +38,6 @@ if($fire_select->num_rows > 0){
   exit;
 }else{
   $error_mess = '<div class="warning"> Please enter corret email and pasword</div> ';
-   
 }
 }
 

@@ -11,7 +11,12 @@ $q = $connection->prepare("DELETE  FROM `userinfo` WHERE emailAddress=? AND  car
 
 $q->bind_param("ss", $_SESSION['email'] , $_GET['keyword']);
         if($q->execute()){
-           header("location:show_cart.php");
+            if(!isset($_GET['send'])){
+                header("location:show_cart.php");
+            }
+            else{
+                header("location: ./user_profile.php");
+            }
         }
         else {
             $error = $mysqli->errno . ' ' . $mysqli->error;
