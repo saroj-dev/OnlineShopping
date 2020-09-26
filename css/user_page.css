@@ -82,8 +82,11 @@
 }
 .childs_of_the_user_detail_nav:nth-of-type(1){
     border-bottom: 5px solid rgba(51, 51, 51, 0.802);
-
 } 
+.fav_container_user_page , .orders_container_user_page{
+    display: none;
+}
+
 
 
 

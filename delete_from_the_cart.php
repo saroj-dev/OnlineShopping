@@ -1,7 +1,4 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+<?php 
 session_start();
 include "connection.php";
 
@@ -18,9 +15,6 @@ $q->bind_param("ss", $_SESSION['email'] , $_GET['keyword']);
                 header("location: ./user_profile.php");
             }
         }
-        else {
-            $error = $mysqli->errno . ' ' . $mysqli->error;
-            echo $error; // 1054 Unknown column 'foo' in 'field list'
-        }
+     
  
 ?>

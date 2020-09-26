@@ -15,14 +15,8 @@ $INTHECART = array();
     <title>Search Result</title>
     <link rel="stylesheet" href="product/allproducts.css">
     <link rel="stylesheet" href="css/index.css">
-    <style>
-       .laptopContainer > .container{
-           margin-top: 50px;
-        }
-        .nav{
-            background: #333 ;
-        }
-    </style>
+    <link rel="stylesheet" href="css/cart_inthe_flex.css">
+    
 </head>
 <body>
 <div class="va">

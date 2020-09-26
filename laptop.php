@@ -22,26 +22,35 @@ function printLaptop($key , $dirToImg){
          $n =  $row["laptopRating"];
          if($count<3){
          ?>
-        <div class="container">
+             <div class="swiper-slide">
         <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
          <img src="<?php echo "{$dirToImg}{$laptopFrontImage}" ;?>">
-        <div class="btm">
+        <div class="btm" >
             <h2 class="heading"><?php echo $laptopName ; ?></h2>
-         <small>
+            <br>
+            <small>
             <?php
             while ($n>0){
-                echo("⭐");
+               echo '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>';
                 $n = $n-1;
             }
             ?>
          </small>
+                             &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            
+                
+        <small class="high_price">
+            RS.  <?php echo $laptopOrginalPrice ; ?>
+        </small>
+        &nbsp;
+                         
          <small class="orginal_price">
-             <small class="high_price">
-               RS.  <?php echo $laptopOrginalPrice ; ?>
-            </small>
             RS. <?php echo  $laptopDiscountPrice ; ?>
             </small>
             <br>
+                               <br>
                 
     <?php
             // making a querry to check fetch the data from the userinfo tab.
@@ -103,6 +112,10 @@ $count++;
 
         }
       }  
+      ?>
+     
+      <?php
+      
     }
  
 

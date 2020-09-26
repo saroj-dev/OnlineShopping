@@ -1,27 +1,35 @@
-<?php 
-function printLaptop($key , $dirToImg){
+<div class="laptopContainer">
+
+<?php   
+
+    if(isset($_REQUEST['q'])){
+         
     $INTHECART = array();
     include "connection.php";
-    if($key!=0){
-        $select = "SELECT * FROM  `laptop` WHERE keyword = $key"  ;
-    }else{
-    $select = "SELECT * FROM  `laptop`" ;
-    }
-    $result = $connection->query($select);
-    $count = 0;
-
+    $arra = str_split($_REQUEST['q']);
+    foreach ($arra as $k) {
+        if($k == ','){
+        }else{
+    
+        $select  = "SELECT * FROM `laptop`";
+        $result = $connection->query($select);
+    // $result = $connection->prepare("SELECT * FROM `laptop`");
+    // $result->bind_param("i",$_REQUEST['q']);
+    // $result->execute();
+    $dirToImg = "img/";
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-        $product_id = $row['id_no'];
-         $laptopName = $row["laptopName"] ;
-         $laptopImage = $row["laptopImages"];
-         $laptopFrontImage = $row["laptopFrontImages"]; 
-         $laptopFeatures = $row["laptopFeatures"]; 
-         $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
-         $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
-         $n =  $row["laptopRating"];
-         if($count<3){
-         ?>
+            $product_id = $row['id_no'];
+            $laptopName = $row["laptopName"] ;
+            $laptopImage = $row["laptopImages"];
+            $laptopFrontImage = $row["laptopFrontImages"]; 
+            $laptopFeatures = $row["laptopFeatures"]; 
+            $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
+            $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
+            $n =  $row["laptopRating"];
+            if($k  == $product_id){
+
+            ?>
         <div class="container">
         <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
          <img src="<?php echo "{$dirToImg}{$laptopFrontImage}" ;?>">
@@ -87,6 +95,7 @@ function printLaptop($key , $dirToImg){
                         </a>
                         <?php
                     }
+                
             ?>
 
 
@@ -96,15 +105,21 @@ function printLaptop($key , $dirToImg){
     </div>
 
 
-<?php
+<?php 
 
-$count++;
+        
+            }  }
+    }else{
+        ?>
+        <h3 style="margin-top:20px">
+            Try adding items in the favurite list.
+        </h3>
+        <?php
+         
+    } 
+}}
+}
+     
+    ?>
 
-        }
-      }  
-    }
- 
-
-
-    }
-?>
+    </div>

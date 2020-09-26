@@ -78,11 +78,13 @@ include "connection.php";
 </div>
 
 <div class="fav_container_user_page cards_container">
-this  isjidis
+<!-- <?php include 'load_fav.php';?> -->
 </div>
 
 <div class="orders_container_user_page cards_container">
-  dsdbfhhdfbsdbfhdhfbfhsdfhi
+   <?php
+   include "myorders.php";
+   ?>
 </div>
 
 
@@ -98,6 +100,46 @@ this  isjidis
 <script src="https://kit.fontawesome.com/cc8ed28d8b.js" crossorigin="anonymous"></script>
 
   <script>
+
+let below_nav = document.querySelectorAll(".childs_of_the_user_detail_nav");
+
+below_nav.forEach(function(elm , i ){
+  elm.addEventListener("click",function(){
+
+    if(i == 1 ){
+      var favList  = [];
+      var counter = 0;
+      for (let [key, value] of Object.entries(localStorage)) {
+        let minfied = key.replace("?keyword=", "");
+        
+        if(isNaN(minfied)){
+        }else{
+          favList.push(minfied);
+        }}
+        if(counter < 1){
+
+          var xmlhttp = new XMLHttpRequest();
+          // console.log(`${key}: ${value}`);
+        xmlhttp.open("GET", "load_fav.php?q=" + favList, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+        document.querySelector(".fav_container_user_page").innerHTML =this.responseText;
+             counter++;
+      }
+    }
+  }
+
+    }
+    below_nav.forEach(elme =>{
+      elme.style.border ="none";
+    });
+    elm.style.borderBottom = "5px solid rgba(51, 51, 51, 0.802)";
+  })
+})
+    
+
+
       if(document.querySelector("button").classList.contains("logout")){
     document.querySelector("#logout").addEventListener("click", function () {
       var req = new XMLHttpRequest();
@@ -181,18 +223,6 @@ document.querySelector(".fa-user-circle").addEventListener("click",function(){
     window.location.href = "user_profile.php";
 });
 
-let below_nav = document.querySelectorAll(".childs_of_the_user_detail_nav");
-
-below_nav.forEach(function(elm , i ){
-  elm.addEventListener("click",function(){
-    below_nav.forEach(elme =>{
-      elme.style.border ="none";
-    });
-    elm.style.borderBottom = "5px solid rgba(51, 51, 51, 0.802)";
-
-
-  })
-})
 
 
 document.querySelectorAll(".View").forEach(function(elm){
@@ -223,6 +253,7 @@ switch_tab_bottom.forEach((element , j) => {
 });
   })
 })
+
 
 
 
