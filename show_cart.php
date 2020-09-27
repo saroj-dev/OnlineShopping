@@ -7,6 +7,8 @@
         
         <link rel="stylesheet" href="css/index.css">
          <link rel="stylesheet" href="css/cart_item.css">
+         <link rel="stylesheet" href="css/cart_inthe_flex.css">
+
     <title>Document</title>
 </head>
 <body>

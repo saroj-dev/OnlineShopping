@@ -16,9 +16,9 @@
 
 /* fotter */
 footer{
-    margin-top: 50px;
+    margin-top: -1px;
     display: grid;
-    background: #333;
+    background: rgb(26, 26, 26);
     color: #fff;
     /* min-height: 200px; */
     place-items: center;
@@ -190,8 +190,6 @@ display: none;
 /* products section. */
 
 .product_laptop{
-    width: 95%;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows:1fr ;

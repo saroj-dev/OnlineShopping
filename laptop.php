@@ -2,14 +2,9 @@
 function printLaptop($key , $dirToImg){
     $INTHECART = array();
     include "connection.php";
-    if($key!=0){
-        $select = "SELECT * FROM  `laptop` WHERE keyword = $key"  ;
-    }else{
-    $select = "SELECT * FROM  `laptop`" ;
-    }
-    $result = $connection->query($select);
+    $select = "SELECT * FROM  `laptop` WHERE keyword='$key'";
+    $result = $connection->query($select) or die("<h1 color='#fff'>Error from our side sorry</h1>");
     $count = 0;
-
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
         $product_id = $row['id_no'];
@@ -20,6 +15,7 @@ function printLaptop($key , $dirToImg){
          $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
          $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
          $n =  $row["laptopRating"];
+         
          if($count<3){
          ?>
              <div class="swiper-slide">

@@ -12,8 +12,7 @@ $INTHECART = array();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Result</title>
-    <link rel="stylesheet" href="product/allproducts.css">
+    <title>Search Result</title> 
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/cart_inthe_flex.css">
     
@@ -80,12 +79,17 @@ include "nav.php";
             }
             ?>
                  </small>
-                 <small class="orginal_price">
-                     <small class="high_price">
+                 &nbsp; &nbsp; 
+                 
+                 &nbsp;                  <small class="high_price">
                      <?php
                         echo  "RS. {$productDiscountPrice}";
                          ?>
                          </small>
+                 &nbsp;  
+                         
+                 <small class="orginal_price">
+                    
                      <?php echo "RS. {$productOrginalPrice}";
                                 ?>
                     </small>
@@ -187,6 +191,8 @@ container.forEach(function name(elm , i) {
     
 // add to cart
 
+
+
 var addtoCart = document.querySelectorAll(".btn_add_cart");
 addtoCart.forEach(function(elm,i){
     if(elm.classList.contains('disabled')){
@@ -196,11 +202,11 @@ addtoCart.forEach(function(elm,i){
         elm.addEventListener("click",function(){
             var request = new XMLHttpRequest();
             var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     <?php 
+    <?php 
     $_SESSION['previous_location_add_buy'] = "";
      ?>
          request.onreadystatechange = function() {
-            if(this.readyState === 4 && this.status === 200) {
+        if(this.readyState === 4 && this.status === 200) {
             if(elm.classList.contains("not_logged_in")){
             window.location.href = "reg/login.php";
             }else{
@@ -208,9 +214,19 @@ addtoCart.forEach(function(elm,i){
             elm.style.cursor = "not-allowed";
            elm.style.opacity = "0.5";
            elm.style.pointerEvents = "none";
+           var new_req = new XMLHttpRequest();
+           new_req.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200) {
+               console.log(this.responseText)
+                document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+             }  };
+           new_req.open("GET", "nav_counter.php", true);
+           new_req.send();
             }
         }
     };
+    //  request.open("GET","send_data.php"+window.location.search,true);
     request.open("GET","send_data.php?addtocart="+cart+"&from=p",true);
     request.send();
     })

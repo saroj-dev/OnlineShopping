@@ -9,8 +9,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/swipe.css">
+    <link rel="stylesheet" href="css/index.css"> 
+   <link rel="stylesheet" href="css/swipe.css">
+
     <title>Document</title>
 </head>
     <body>
@@ -713,7 +714,7 @@ addtoCart.forEach(function(elm,i){
         elm.addEventListener("click",function(){
             var request = new XMLHttpRequest();
             var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     <?php 
+    <?php 
     $_SESSION['previous_location_add_buy'] = "";
      ?>
          request.onreadystatechange = function() {
@@ -725,6 +726,15 @@ addtoCart.forEach(function(elm,i){
             elm.style.cursor = "not-allowed";
            elm.style.opacity = "0.5";
            elm.style.pointerEvents = "none";
+           var new_req = new XMLHttpRequest();
+           new_req.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200) {
+               console.log(this.responseText)
+                document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+             }  };
+           new_req.open("GET", "nav_counter.php", true);
+           new_req.send();
             }
         }
     };
@@ -764,6 +774,7 @@ document.querySelector(".fa-user-circle").addEventListener("click",function(){
             el: '.swiper-pagination',
           },
         });
+ 
       </script>
 
 

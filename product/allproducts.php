@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/cart_inthe_flex.css">
      <style>
-         
          .title_suggested{
              margin-top: 80px;
              text-transform: capitalize;
@@ -39,7 +39,7 @@
             <div class="laptopContainer">
         <?php
             include "ProductsCollection.php";
-            showProduct(0,"../img/");
+            showProduct($_GET['group'],"../img/");
         ?>
         </div>
             </div>
@@ -57,7 +57,8 @@ container.forEach(function name(elm , i) {
     elm.addEventListener("click",function(){
         url = "product.php?keyword="+elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
         window.location.href = url;
-    });})
+    });
+})
     var  search_query = document.querySelector("#search_id");
     var  search_button = document.querySelector(".fa-search");
 search_query.addEventListener("keypress", function(e){
@@ -95,7 +96,18 @@ addtoCart.forEach(function(elm,i){
             elm.style.cursor = "not-allowed";
            elm.style.opacity = "0.5";
            elm.style.pointerEvents = "none";
+
+           var new_req = new XMLHttpRequest();
+           new_req.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200) {
+               console.log(this.responseText)
+                document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+             }  };
+           new_req.open("GET", "nav_counter.php", true);
+           new_req.send();
             }
+        }
         }
     };
     request.open("GET","../send_data.php?addtocart="+cart+"&from=p",true);

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="../css/searchFilter.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/cart_inthe_flex.css">
 </head>
 <body>
     
@@ -479,8 +480,89 @@ search_query.addEventListener("keypress", function(e){
         window.location.href = "../search.php?search_query="+search_query.value;
     })
 
-var addtoCart = document.querySelectorAll(".btn_add_cart");
-addtoCart.forEach(function(elm,i){
+// var addtoCart = document.querySelectorAll(".btn_add_cart");
+// addtoCart.forEach(function(elm,i){
+//     if(elm.classList.contains('disabled')){
+//         elm.style.cursor = "not-allowed";
+//         elm.style.opacity = "0.5";
+//     } else{
+//         elm.addEventListener("click",function(){
+//             var request = new XMLHttpRequest();
+//             var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
+//     //  <?php 
+//     // $_SESSION['previous_location_add_buy'] = "?keyword=".$_GET['keyword'];
+//     //  ?>
+//          request.onreadystatechange = function() {
+//             if(this.readyState === 4 && this.status === 200) {
+//             if(elm.classList.contains("not_logged_in")){
+//             window.location.href = "../reg/login.php";
+//             }else{
+//             elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
+//             elm.style.cursor = "not-allowed";
+//            elm.style.opacity = "0.5";
+//            elm.style.pointerEvents = "none";
+//            new_req.onreadystatechange = function(){
+//             if(this.readyState === 4 && this.status === 200) {
+//                console.log(this.responseText)
+//                 document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+//              }  };
+//            new_req.open("GET", "nav_counter.php", true);
+//            new_req.send();
+//             }
+//             }
+//         }
+//     });
+//     request.open("GET","../send_data.php?addtocart="+cart+"&from=p",true);
+//     request.send();
+  
+//     }
+// })
+
+// var addtoCart1 = document.querySelectorAll(".AddToCart");
+// addtoCart1.forEach(function(elm,i){
+//     if(elm.classList.contains('disabled')){
+//         elm.style.cursor = "not-allowed";
+//         elm.style.opacity = "0.5";
+//     } else{
+//     var request = new XMLHttpRequest();
+//         elm.addEventListener("click",function(){
+//      var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
+//     //  <?php 
+//     // $_SESSION['previous_location_add_buy'] = "?keyword=".$_GET['keyword'];
+//     //  ?>
+//     request.onreadystatechange = function() {
+//         if(this.readyState === 4 && this.status === 200) {
+//             if(elm.classList.contains("not_logged_in")){
+//             window.location.href = "../reg/login.php";
+//             }else{
+//             elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
+//             elm.style.cursor = "not-allowed";
+//            elm.style.opacity = "0.5";
+//            elm.style.pointerEvents = "none";
+//            new_req.onreadystatechange = function(){
+//             if(this.readyState === 4 && this.status === 200) {
+//                console.log(this.responseText)
+//                 document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+//              }  };
+//            new_req.open("GET", "nav_counter.php", true);
+//            new_req.send();
+//             }
+//             }
+//         // }
+//     // };
+//         }
+// })
+        
+//     request.open("GET","../send_data_pro.php"+window.location.search,true);
+//     request.send();
+//     }
+// })
+
+
+var addtoCart1 = document.querySelectorAll(".btn_add_cart");
+addtoCart1.forEach(function(elm,i){
     if(elm.classList.contains('disabled')){
         elm.style.cursor = "not-allowed";
         elm.style.opacity = "0.5";
@@ -488,18 +570,27 @@ addtoCart.forEach(function(elm,i){
         elm.addEventListener("click",function(){
             var request = new XMLHttpRequest();
             var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     <?php 
-    $_SESSION['previous_location_add_buy'] = "?keyword=".$_GET['keyword'];
+    <?php 
+    $_SESSION['previous_location_add_buy'] = "";
      ?>
          request.onreadystatechange = function() {
-            if(this.readyState === 4 && this.status === 200) {
+        if(this.readyState === 4 && this.status === 200) {
             if(elm.classList.contains("not_logged_in")){
-            window.location.href = "../reg/login.php";
+            window.location.href = "reg/login.php";
             }else{
             elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
             elm.style.cursor = "not-allowed";
            elm.style.opacity = "0.5";
            elm.style.pointerEvents = "none";
+           var new_req = new XMLHttpRequest();
+           new_req.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200) {
+               console.log(this.responseText)
+                document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+             }  };
+           new_req.open("GET", "../nav_counter.php", true);
+           new_req.send();
             }
         }
     };
@@ -509,36 +600,48 @@ addtoCart.forEach(function(elm,i){
     }
 })
 
-var addtoCart1 = document.querySelectorAll(".AddToCart");
-addtoCart1.forEach(function(elm,i){
+ 
+
+var addtoCart = document.querySelectorAll(".AddToCart");
+addtoCart.forEach(function(elm,i){
     if(elm.classList.contains('disabled')){
         elm.style.cursor = "not-allowed";
         elm.style.opacity = "0.5";
     } else{
-    var request = new XMLHttpRequest();
         elm.addEventListener("click",function(){
-     var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     <?php 
-    $_SESSION['previous_location_add_buy'] = "?keyword=".$_GET['keyword'];
+            var request = new XMLHttpRequest();
+            var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
+    <?php 
+    $_SESSION['previous_location_add_buy'] = "";
      ?>
-    request.onreadystatechange = function() {
+         request.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             if(elm.classList.contains("not_logged_in")){
-            window.location.href = "../reg/login.php";
+            window.location.href = "reg/login.php";
             }else{
             elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
             elm.style.cursor = "not-allowed";
            elm.style.opacity = "0.5";
            elm.style.pointerEvents = "none";
+           var new_req = new XMLHttpRequest();
+           new_req.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200) {
+               console.log(this.responseText)
+                document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+             }  };
+           new_req.open("GET", "../nav_counter.php", true);
+           new_req.send();
             }
         }
     };
-
-    request.open("GET","../send_data_pro.php"+window.location.search,true);
+    request.open("GET","../send_data.php?addtocart="+cart+"&from=p",true);
     request.send();
     })
     }
 })
+
+
 
 document.querySelector(".fa-shopping-cart").addEventListener("click", function(){
 

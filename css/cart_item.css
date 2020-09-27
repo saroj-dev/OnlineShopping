@@ -19,9 +19,12 @@
            /* font-size:20px; */
        }
        .btm_cart_controls{
-           margin-top:30px;
+           
+            margin-top:30px;
             display: flex;
-            width: 100%;
+            width: 70%;
+            min-width: 70%;
+            max-width: 400px;
 
         }
         .delete_the_item{
@@ -33,6 +36,7 @@
            color: #fff;
            max-width: 20%;
            min-width: 20%;
+           min-width: 100px;
            border-radius: 5px;
            cursor: pointer;
         }

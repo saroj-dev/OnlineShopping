@@ -48,7 +48,7 @@
     margin-right: 20px;
   }
 
-  @media  only screen and (max-width:768px){
+  @media  only screen and (max-width:920px){
 
     .container{
         grid-template-rows:minmax(100px, 150px)  1fr ;
@@ -58,6 +58,11 @@
         margin: 0 auto;
         /* height: 100px; */
     }
+    .btm_cart_controls{
+        margin: 0 auto;
+        margin-top: 30px;
+        }
+    
     
   }
   
@@ -68,10 +73,21 @@
     .container > img{
         margin: 0;
     } 
-
+  
 
 }
 
 .laptopContainer{
     padding-bottom: 100px;
+}
+.high_price{
+    color: #333;
+    opacity: 0.7;
+}
+.original_price{
+    color:#333 ;
+}
+.btm > h2{
+    color: #333;
+    text-transform: capitalize;
 }

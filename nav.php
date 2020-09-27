@@ -10,28 +10,10 @@
    <!-- right slide  -->
   <div class="rightnav">
       <div class="myOrder">
-          <a href="#Myorder" >
-              <i style="color:#e8e8e8; position:relative;"class="fas fa-shopping-cart"><?php 
-                include "connection.php";
-                // creating a sql query
-                if(isset($_SESSION['email'])){
-                    $select = "SELECT cart FROM `userinfo` WHERE emailAddress='{$_SESSION['email']}'";
-                    $result = $connection->query($select);
-                    $count = 0;
-                    if($result->num_rows > 0){
-                    while ($row = $result->fetch_assoc()){
-                        // checking the number of the rows in the database
-                        if(!$row  = 0){
-                            $count++;
-                        }
-                    }
-                    if($count > 0 ){
-                    echo "<div style='position:absolute;font-size:12px; right:-10px; bottom:-10px;height:20px;width:20px; text-align:center;line-height:20px;background:#f5720f; border-radius:50%' > $count  </div>";
-                }
-            }}
-                    
-                
-              ?></i>
+          <a class="myorder_counter" href="#Myorder" >
+              <i style="color:#e8e8e8; position:relative;"class="fas fa-shopping-cart"> 
+              <?php  include "nav_counter.php"; ?>
+                </i>
           </a>
       </div>
       <div class="search">

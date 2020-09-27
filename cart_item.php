@@ -1,6 +1,5 @@
 <div class="laptopContainer">
                 <?php
-               
              include "connection.php";
              $INTHECART = array();
              if(isset($_SESSION["is_login"])){
@@ -14,13 +13,9 @@
             array_push($INTHECART , $cart['cart']);
         }
     } 
-    
-    
-    
     $unique_array_IN  = array_unique($INTHECART);
     $dirToImg = "img/";
-    
-    $j = 0;
+    $j = 0; 
     foreach ($unique_array_IN as $key ) {
         $getItemQuery = "SELECT * FROM laptop WHERE id_no = '$key'";
             $table  ="laptop";

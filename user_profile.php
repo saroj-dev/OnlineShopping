@@ -6,8 +6,9 @@ include "connection.php";
 <html lang="en">
   <head>
     <title>Document</title>
+    <link rel="stylesheet" href="css/cart_inthe_flex.css">
     <link rel="stylesheet" href="css/cart_item.css">
-    <link rel="stylesheet" href="css/user_page.css" />
+    <link rel="stylesheet" href="css/user_page.css"/>
     <link rel="stylesheet" href="css/index.css" />
   </head>
 
@@ -78,7 +79,7 @@ include "connection.php";
 </div>
 
 <div class="fav_container_user_page cards_container">
-<!-- <?php include 'load_fav.php';?> -->
+ 
 </div>
 
 <div class="orders_container_user_page cards_container">
@@ -102,10 +103,8 @@ include "connection.php";
   <script>
 
 let below_nav = document.querySelectorAll(".childs_of_the_user_detail_nav");
-
 below_nav.forEach(function(elm , i ){
   elm.addEventListener("click",function(){
-
     if(i == 1 ){
       var favList  = [];
       var counter = 0;
@@ -193,7 +192,7 @@ addtoCart.forEach(function(elm,i){
         elm.addEventListener("click",function(){
             var request = new XMLHttpRequest();
             var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
-     <?php 
+    <?php 
     $_SESSION['previous_location_add_buy'] = "";
      ?>
          request.onreadystatechange = function() {
@@ -205,14 +204,25 @@ addtoCart.forEach(function(elm,i){
             elm.style.cursor = "not-allowed";
            elm.style.opacity = "0.5";
            elm.style.pointerEvents = "none";
+           var new_req = new XMLHttpRequest();
+           new_req.onreadystatechange = function(){
+            if(this.readyState === 4 && this.status === 200) {
+               console.log(this.responseText)
+                document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
+          
+             }  };
+           new_req.open("GET", "nav_counter.php", true);
+           new_req.send();
             }
         }
     };
+    //  request.open("GET","send_data.php"+window.location.search,true);
     request.open("GET","send_data.php?addtocart="+cart+"&from=p",true);
     request.send();
     })
     }
 })
+
 
 document.querySelector(".fa-shopping-cart").addEventListener("click", function(){
 window.location.href = "show_cart.php";

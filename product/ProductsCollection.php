@@ -13,10 +13,10 @@ if($check!=0){
     $select = "SELECT * FROM  $table";
 }
 else{
-    $select = "SELECT * FROM  $table WHERE keyword=$check  ";
+    $select = "SELECT * FROM  $table WHERE keyword='$check' ";
 }
 
-$result = $connection->query($select);
+$result = $connection->query($select) or die("<center><h3 style='text-transform:capitalize; color:#333'>Sorry, your request cannot be fulfilled at the time. <br> We will make this product available soon. </h3></center>");
 
 if($result->num_rows > 0){
     while ($row = $result->fetch_assoc()) {
@@ -44,13 +44,15 @@ if($result->num_rows > 0){
                 $n = $n-1;
             }
             ?>
-                 </small>
-                 <small class="orginal_price">
-                     <small class="high_price">
+                 </small>&nbsp;&nbsp;&nbsp;
+                 <small class="high_price">
                      <?php
                         echo  "RS. {$productDiscountPrice}";
                          ?>
                          </small>
+                         &nbsp;
+                 <small class="orginal_price">
+                    
                      <?php echo "RS. {$productOrginalPrice}";
                                 ?>
                     </small>
