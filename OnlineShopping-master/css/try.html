@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <title>Document</title>
+    <style>
+    body {
+      background: #fff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper-container {
+      width: 100%;
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 450px;
+      /* border: 1px solid #333; */
+      border-radius: 5px;
+      background:rgba(87, 87, 87, 0.986);
+      color: #e8e8e8;
+      padding: 10px;
+
+    }
+    .swiper-slide > img{
+        width: 100%;
+      border-radius: 5px;
+
+
+    }
+    .swiper-slide-active{
+        transform: scale(1.2);
+         background: #333;        
+         opacity: 1;
+    }
+   
+    .a{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate( -50% , -30%);
+
+}
+.a > button{
+    background: rgb(255, 125, 125);
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.btn_add_cart{
+    /* margin-top: 50px; */
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px 20px;
+    line-height: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background: rgb(0, 255, 149);
+    margin: 0 auto;
+    display: block;
+    max-width: 100px;
+}
+.high_price{
+    font-size: 1.1em;
+    /* color: rgb(255, 58, 58); */
+    color: rgba(0, 255, 149, 0.28);
+    position: relative;
+}
+ 
+.orginal_price{
+    font-size: 1.1em;
+    color: rgb(0, 255, 149);
+}
+small svg{
+    fill:rgb(0, 255, 149) ;
+    
+}
+
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <d
+        iv class="swiper-wrapper">
+         <div class="swiper-slide"><img src="../img/5f6d8f38600060.97974411pexels-veeterzy-303383.jpg" alt="" srcset="">
+                        <div class="btm">
+                            <h2 class="heading">
+                                Asus ZenBook Flip 13 UX362FA Laptop (8th Gen Core I7/ 8GB/ 512GB SSD/ Win10
+                
+                            </h2>
+                            <small><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                            </small>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                
+                            <small class="high_price">
+                                RS.100001
+                             </small>
+                             &nbsp;
+                
+                            <small class="orginal_price">
+                               RS.12300
+                               </small>
+                               
+                               <br>
+                               <br><br>
+                                
+                               <a class="btn_add_cart disabled " href="#cart">
+                                In the Cart <i class="fas fa-cart-plus"></i>
+                            </a>
+                        </div>
+                        </div>
+
+
+
+<!-- no need to touch it -->
+
+          <div class="swiper-slide">
+            <h1 class="heading" style="text-align:center; margin-top:100px">
+                See all the <br>
+                Related items.
+            </h1>
+            <a class="a" href="product/allproducts.php?group=dell&Name=laptop"><button class="div1_button_see_more"> See All  </button></a> 
+        </div>
+        </d>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script>
+        var swiper = new Swiper('.swiper-container', {
+          effect: 'coverflow',
+          centeredSlides: true,
+          slidesPerView: 'auto',
+          coverflowEffect: {
+            rotate: 30,
+            stretch: 0,
+            depth: 1000,
+            modifier: 0.3,
+            slideShadows: true,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+          },
+        });
+      </script>
+</body> 
+</script>
+</html>

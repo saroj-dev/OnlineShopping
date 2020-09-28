@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.laptopContainer{
+    margin-top: 50px;
+
+}
+.title_suggested{
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+    font-weight: bolder;
+    color: #333333;
+}
+
