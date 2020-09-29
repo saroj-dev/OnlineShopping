@@ -4,12 +4,7 @@ function send_data($data , $prev){
     session_start();
 
     if(isset($_SESSION['is_login'])){
-    //     if(isset($_SESSION['previous_location_add_buy'])){
-    //         header("Location:". $_SESSION['previous_location_add_buy'] ." ");       
-    //     }else{
-    //     header("Location: ../index.php");
-    //     }
-     
+
         $email = $_SESSION['email'];
         $send = $connection->prepare("INSERT INTO `userinfo`(`emailAddress`, `cart`) VALUES (? , ? )");
         $send->bind_param("ss", $email , $data);

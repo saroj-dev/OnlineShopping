@@ -151,7 +151,7 @@ include "nav.php";
         }
 
         else{
-            print '<h1>No result find</h1>';
+            print '<h1 style="text-align:center;>No result find</h1>';
         }
 
     }
@@ -172,7 +172,7 @@ include "nav.php";
 search_query.addEventListener("keypress", function(e){
     if(e.key == 'Enter'){
         window.location.href = "?search_query="+search_query.value;
-        console.log(window.location.href)
+         
     }
 })
 
@@ -183,9 +183,8 @@ search_query.addEventListener("keypress", function(e){
     var container = document.querySelectorAll(".btm > .heading");
 container.forEach(function name(elm , i) {
     elm.addEventListener("click",function(){
-        url = "product.php?keyword="+elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
+        url = "product/product.php?keyword="+elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
         window.location.href = url;
-        alert("url");
     });})
 
     
@@ -216,8 +215,7 @@ addtoCart.forEach(function(elm,i){
            elm.style.pointerEvents = "none";
            var new_req = new XMLHttpRequest();
            new_req.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200) {
-               console.log(this.responseText)
+            if(this.readyState === 4 && this.status === 200) { 
                 document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
           
              }  };

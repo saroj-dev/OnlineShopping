@@ -20,7 +20,7 @@ if($cart['cart'] == $product_id){
                         
                    
                 else{
-                    ?>
+                    ?
                         <a class="btn_add_cart " href="#cart">
                             Add to cart <i class="fas fa-cart-plus"></i>
                         </a>

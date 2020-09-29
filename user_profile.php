@@ -20,10 +20,15 @@ include "connection.php";
       <div class="user_priv_details">
           <div class="logo_name_container">
               
-        <div class="logo">
+        <div class="logo" style="display: flex;justify-content: center; ">
           <?php
             if(isset($_SESSION['userName'])){
-            echo "Img_from_db";
+            // this is to setup the image check in the data base
+            ?>
+ 
+          <img src="img/logo_login.png" alt="" height=151  />
+            <?php  
+
             }
             elseif(isset($_SESSION['logo'])){
             ?>
@@ -31,7 +36,9 @@ include "connection.php";
                 <?php            
         }
         else{
-        echo "NU";
+          ?>
+          <img src="img/not_login.png" alt="" height=151  />
+        <?php
         }
         ?>
         </div>
@@ -74,8 +81,14 @@ include "connection.php";
 
 <div class="cart_container_user_page cards_container">
   <?php 
+  
+        if(isset($_SESSION['userName'])){
+        if(isset($_SESSION["email"])){
   include "cart_item.php";
-  ?>
+        }}
+        else{
+        echo "<center> <p style='font-size:1.5em; color:#333; margin-top:50px'>Dear, user you must login to see this features.</p>  </center>" ; 
+        }?>
 </div>
 
 <div class="fav_container_user_page cards_container">
@@ -84,8 +97,14 @@ include "connection.php";
 
 <div class="orders_container_user_page cards_container">
    <?php
+   
+        if(isset($_SESSION['userName'])){
+        if(isset($_SESSION["email"])){
    include "myorders.php";
-   ?>
+        }}
+        else{
+        echo "<center> <p style='font-size:1.5em; color:#333; margin-top:50px'>Dear, user you must login to see this features.</p>  </center>" ; 
+        }?>
 </div>
 
 
@@ -117,8 +136,7 @@ below_nav.forEach(function(elm , i ){
         }}
         if(counter < 1){
 
-          var xmlhttp = new XMLHttpRequest();
-          // console.log(`${key}: ${value}`);
+          var xmlhttp = new XMLHttpRequest(); 
         xmlhttp.open("GET", "load_fav.php?q=" + favList, true);
         xmlhttp.send();
         xmlhttp.onreadystatechange = function() {
@@ -189,7 +207,7 @@ addtoCart.forEach(function(elm,i){
         elm.style.cursor = "not-allowed";
         elm.style.opacity = "0.5";
     } else{
-        elm.addEventListener("click",function(){
+        elm.addEventListener("click",function(){ 
             var request = new XMLHttpRequest();
             var  cart  =  elm.parentElement.parentElement.children.item(0).getAttribute("data-id");
     <?php 
@@ -206,8 +224,7 @@ addtoCart.forEach(function(elm,i){
            elm.style.pointerEvents = "none";
            var new_req = new XMLHttpRequest();
            new_req.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200) {
-               console.log(this.responseText)
+            if(this.readyState === 4 && this.status === 200) { 
                 document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
           
              }  };

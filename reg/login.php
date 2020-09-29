@@ -1,7 +1,7 @@
 <?php
  session_start();
 
-if(isset($_SESSION['is_login'])){
+if(isset($_SESSION['verified'])){
     if(isset($_SESSION['previous_location'])){
       header("Location:". $_SESSION['previous_location'] ." ");       
     }else{

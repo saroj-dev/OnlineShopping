@@ -1,16 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
     padding: 0;
     margin: 0;
 }
 body{
     font-family: 'Poppins', sans-serif;
-     
 }
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
- 
 html,body{
   display: grid;
   min-height: 100vh;
@@ -279,7 +274,7 @@ input{
 	form .field input[type="submit"],
 	.abcRioButtonContentWrapper,
 	.wrapper .title{
-		background: #e08256;
+    background: repeating-linear-gradient( 90deg,#2f2e41, #3f3d56 , #646371);
 	}
 
 	form .field input[type="submit"]:hover{

@@ -879,35 +879,27 @@ var times = 1;
 const search__optionsDiv = document.querySelector('.search__options');
 let address = {}
 opt.forEach((v, i) => {
-	// console.log(v.name)
 	let span = document.createElement('span')
 	span.textContent = v.name
 	span.className = 'search__optionsBox'
 	// let ele = `<span>${v.name}</span>`
 	search__optionsDiv.appendChild(span)
-	// console.log(ele)
 })
 
 
 const filterOut = (e) => {
 	let query = e.value.toLowerCase()
-	//console.log(query)
 	let span = search__optionsDiv.getElementsByTagName('span')
-	// console.log(span)
-	// console.log(span.length)
 
 	for (let i = 0; i < span.length; i++) {
 		const optValue = span[i].textContent.toLowerCase();
-		// console.log(optValue)
 		if (optValue.indexOf(query) > -1) {
-			// console.log('matched')
 			span[i].style.display = 'block'
 			setTimeout(() => {
 				span[i].style.transform = 'scaleY(1)'
 			}, 250)
 		}
 		else {
-			//console.log('not matched')
 			span[i].style.transform = 'scaleY(0)'
 			setTimeout(() => {
 				span[i].style.display = 'none'
@@ -923,8 +915,6 @@ const filterOut = (e) => {
 
 	searchOptionsBox.forEach((item, index) => {
 		item.addEventListener('click', (e) => {
-			// console.log(e)
-			// console.log(item,index)
 
 			//Adding directory
 			let span = document.createElement('span')
@@ -937,7 +927,6 @@ const filterOut = (e) => {
 			// let ele = `<span>${v.name}</span>`
 			document.querySelector('.search__dir').appendChild(span)
 
-			console.log(item.textContent)
 			//Adding region on address
 			address['region'] = item.textContent
 
@@ -949,18 +938,12 @@ const filterOut = (e) => {
 			search__optionsDiv.innerHTML = ''
 
 			//Changing options
-			//console.log(opt[index].options)
 			opt[index].options.forEach((v, i) => {
-				// console.log(v.name)
 				let span = document.createElement('span')
 				span.textContent = v.name
-				// console.log(v.name)
 				span.className = 'search__optionsBoxCity'
-				// let ele = `<span>${v.name}</span>`
-				//console.log(item)
 				search__optionsDiv.appendChild(span)
-				// console.log(ele)
-
+			
 			})
 
 
@@ -970,8 +953,7 @@ const filterOut = (e) => {
 			let searchOptionsBoxCity = document.querySelectorAll('.search__optionsBoxCity')
 			searchOptionsBoxCity.forEach((it, ind) => {
 				it.addEventListener('click', (e) => {
-					// console.log(e)
-
+					 
 
 					//Adding directory
 					let span = document.createElement('span')
@@ -994,16 +976,15 @@ const filterOut = (e) => {
 					//Changing options
 
 					opt[index].options[ind].options.forEach((v, i) => {
-						// console.log(v.name)
+					 
 						let span = document.createElement('span')
-						// console.log(v)
-						// console.log(v[i])
+						 
 						span.textContent =  v 
 						span.className = 'search__optionsBoxNearby'
-						// let ele = `<span>${v.name}</span>`
+						 
 
 						search__optionsDiv.appendChild(span)
-						// console.log(ele)
+						 
 					})
 
 
@@ -1027,18 +1008,7 @@ const filterOut = (e) => {
 								recU();
 							})
 
-							// document.querySelectorAll(".search__optionsBoxCity").forEach(function(elm , i){
-							// elm.innerHTML ="";
-							// })
-							
-							// document.querySelectorAll(".search__optionsBoxNearby").forEach(function(elm , i){
-							// 	elm.innerHTML ="";
-							// 	})
-							
-							// 	document.querySelectorAll(".search__dirList").forEach(function(elm , i){
-							// 		elm.innerHTML ="";
-							// 		})
-									
+							 
 
 						})
 					})
@@ -1047,14 +1017,7 @@ const filterOut = (e) => {
 		})
 	})
 })();
-
-// window.onclick = function(event) {
-//   if (!(event.target.matches('.search__container' && event.target.matches('.')) {
-//     let elements = document.querySelector(".search__container").childNodes
-
-//     	document.querySelector('.search__container').style.display ='none'
-//     }
-// }
+ 
 
 
 const showFilter = () => {

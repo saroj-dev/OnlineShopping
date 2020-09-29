@@ -1,11 +1,16 @@
 <?php
  session_start();
-if(isset($_SESSION['is_login'])){
+ $ok = "false";
+if(isset($_SESSION['verified'])){
+    if(isset($_SESSION['is_login'])){
+
     if(isset($_SESSION['previous_location'])){
         header("Location:". $_SESSION['previous_location'] ." ");       
     }else{
     header("Location: ../index.php");
     }
+}
+
 }
     else{
 
@@ -47,43 +52,27 @@ if (isset($_REQUEST['submit'])) {
                         $lenpass = strlen($password); //len of pass
                         $lenuser = strlen($username); //len of username
                         if ($lenpass > 8) {
-                            if ($lenuser > 8) {
-                                $insert = $con->prepare(" INSERT INTO user_register (`username`, `email`, `password`)VALUES(?,?,?)");
-                                $insert->bind_param("sss",$username , $email , $password);
-                                $sucess =$insert->execute(); //advanced php syntax to fire insert query
-                                if ($sucess) {
-                                   
-                                    $error_mess = '<div class="sucess"> Created Sucessfully</div> ';
-                                    $_SESSION['is_login'] = true;
-                                    $_SESSION['email'] = $email;
-                                    $_SESSION["userName"] = $username;
-
-                                    if(isset($_SESSION['previous_location'])){
-                                    //   echo " <script> location.href = ". $_SESSION['previous_location']  . " </script> ";
-                                header("Location:../". $_SESSION['previous_location'] ." ");       
-                                }else{
-                                header("Location: ../index.php");  
-
-                                    //   echo " <script> location.href = ../index.php ; </script> ";
-                                    }
-
-
+                            if ($lenuser > 5) {
+                                $_SESSION["clicked_with_data_verification"] = "true";
+                                $ok = "true";
+                                $_SESSION['username_t']  = $username;
+                                $_SESSION["email_t"] = $email;
+                                $_SESSION["password"] = $password;
+                                $error_mess = '<div class="sucess">Account Created successfully <br> Click The link thet we send to your <br> Provided mail address.</div> ';
                                 } else {
-                                    $error_mess = '<div class="not">unable to create Account.</div> ';
+                                    $error_mess = '<div class="sucess">error</div> ';
                                 }
                             } else {
                                 $error_mess = '<div class="not">Username must be more than 8 chracter</div> ';
                             }
-                        } else {
-                            $error_mess = '<div class="not">May be you entered white space OR pass is less than 8 chracter</div> ';
-                        }
+                        } 
                     }
                 }
             }
         }
     }
 }
-    }
+    
 ?>
 
   <!DOCTYPE html>
@@ -151,7 +140,7 @@ if (isset($_REQUEST['submit'])) {
   </div>
 
   <div class="field">
-  <input type="submit" value="Create  " name="submit">
+  <input type="submit"  id="submit_check"value="Create  " name="submit">
   </div>
 
   <div class="or">OR</div>
@@ -187,14 +176,35 @@ if (isset($redirect)) {
 
 
   <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
   <script>
   if ( window.history.replaceState ) {
   x= window.location.href;
   window.history.replaceState( null, null, x );
 
-  }
+  } 
+  <?php 
+  if($ok == "true"){
+    $_SESSION['hash'] = substr(sha1(time()), 0, 20);
+?>
 
+Email.send({
+          SecureToken: "0595beeb-b765-4993-87ac-cd91bf333730",
+          To: "<?php echo $_SESSION['email_t'] ;?>",
+          From: "proudnepal.it@gmail.com",
+          Subject: "Proud Nepal It suppliers",
+          Body:'<div class="container" style = "width:70%; margin:0 auto; "><h1 style="font-size:3em; color:rgba(51, 51, 51, 0.767); ">Email Verification</h1><p style="font-size:1.5em; color:rgba(51, 51, 51, 0.76)">Thank you, New user for the email registeration your email is registered successfully but before you continue you need to verify your email address<br>Click the button below to activate your account thank you.<br><br>&nbsp;&nbsp;&nbsp;<small style="color:#e46a23;">*Note : If you have any question than feel free to sen a mail in this address.</small></p><br><br><br><a href="localhost/GitHub/OnlineShopping/reg/verify.php?hash=<?php echo $_SESSION['hash']?>" style="text-decoration:none; color:#fff; background:#333; font-size:1.8em; padding:20px 40px; border-radius:5px; position:absolute; left:50%; transform:translate(-50% , 0)">Activate</a></div>' ,
+           
+        }).then(message => {
+        });
+
+
+<?php
+  }
+  ?>
+
+ 
   function onSignIn(googleUser) {
   alert("sure")
 

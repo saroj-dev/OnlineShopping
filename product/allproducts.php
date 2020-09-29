@@ -64,7 +64,7 @@ container.forEach(function name(elm , i) {
 search_query.addEventListener("keypress", function(e){
     if(e.key == 'Enter'){
         window.location.href = "../search.php?search_query="+search_query.value;
-        console.log(window.location.href)
+      
     }
 })
     search_button.addEventListener("click",function() {
@@ -99,8 +99,7 @@ addtoCart.forEach(function(elm,i){
 
            var new_req = new XMLHttpRequest();
            new_req.onreadystatechange = function(){
-            if(this.readyState === 4 && this.status === 200) {
-               console.log(this.responseText)
+            if(this.readyState === 4 && this.status === 200) { 
                 document.querySelector(".myorder_counter > i ").innerHTML = this.responseText;
           
              }  };

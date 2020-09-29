@@ -10,8 +10,8 @@
                      // echo "it has some value";
                      while($cart = $output->fetch_assoc()){
                          // echo $cart['cart'];
-            array_push($INTHECART , $cart['cart']);
-        }
+                     array_push($INTHECART , $cart['cart']);
+                     }
     } 
     $unique_array_IN  = array_unique($INTHECART);
     $dirToImg = "img/";
