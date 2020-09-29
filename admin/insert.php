@@ -99,6 +99,17 @@ function deleteData(){
     }
 }
 
+function deleteOrder(){
+    $conn = $GLOBALS['connection'];
+    $ID = (int)$_POST['id'];
+    $sql = "DELETE FROM orders WHERE id = $ID";
+    if(mysqli_query($conn,$sql)){
+        alert('success','Yep!','Successfully deleted');
+    }
+    else{
+        alert('error','Failed!',',failed to delete');
+    }
+}
 
 function alert($type,$main,$sec){
     echo '

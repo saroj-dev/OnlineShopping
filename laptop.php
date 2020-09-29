@@ -2,7 +2,7 @@
 function printLaptop($key , $dirToImg){
     $INTHECART = array();
     include "connection.php";
-    $select = "SELECT * FROM  `laptop` WHERE keyword='$key'";
+    $select = "SELECT * FROM  `laptop` WHERE keyword='$key' LIMIT 10";
     $result = $connection->query($select) or die("<h1 color='#fff'>Error from our side sorry</h1>");
     $count = 0;
     if ($result->num_rows > 0) {
@@ -15,8 +15,7 @@ function printLaptop($key , $dirToImg){
          $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
          $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
          $n =  $row["laptopRating"];
-         
-         if($count<3){
+          
          ?>
              <div class="swiper-slide">
         <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
@@ -103,10 +102,7 @@ function printLaptop($key , $dirToImg){
 
 
 <?php
-
-$count++;
-
-        }
+ 
       }  
       ?>
      

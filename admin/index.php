@@ -1,6 +1,8 @@
 <?php
     include './comp/row.php';
     include './comp/popup.php';
+    include './comp/SearchBox.php';
+    include './comp/order.php';
     include '../connection.php';
     require_once('./insert.php');
 ?>   
@@ -22,21 +24,29 @@
         <div class="container-fluid mx-auto py-4 bg-dark text-light text-center">
             <h1>Admin Panel</h1>
         </div>
+        
+        <!-- Ordered Product section -->
+        <div id="AdimnProducts">
+            <?php
+                //calling search box
+                SearchForm('productSearch','Search for the product');
 
-
-        <?php 
-            $query = "SELECT id_no, laptopName, laptopFrontImages, laptopFeatures, laptopPriceDiscounted FROM laptop";
-            $result = mysqli_query($connection,$query);
-            if(mysqli_num_rows($result) > 0){
-                while($product = mysqli_fetch_assoc($result)){
-                    row($product['id_no'],$product['laptopName'],$product['laptopFrontImages'],$product['laptopFeatures'],$product['laptopPriceDiscounted']);
+                //quering for data presentation
+                $query = "SELECT id_no, laptopName, laptopFrontImages, laptopFeatures, laptopPriceDiscounted FROM laptop";
+                $result = mysqli_query($connection,$query);
+                if(mysqli_num_rows($result) > 0){
+                    while($product = mysqli_fetch_assoc($result)){
+                        row($product['id_no'],$product['laptopName'],$product['laptopFrontImages'],$product['laptopFeatures'],$product['laptopPriceDiscounted']);
+                    }
                 }
-            }
-            else{
-                echo 'No data in database.';
-            }
+                else{
+                    echo 'No data in database.';
+                }
 
-            
+            ?>
+        </div>
+
+        <?php
             include './admin.php';
         ?>
         <form action="" method="post">
@@ -44,6 +54,37 @@
         </form>
     
 
+
+        <!-- Ordered Product section -->
+        <div id="OrderedProducts">
+            <?php
+                //calling search box
+                SearchForm('orderSearch','Filter out the orders');
+
+                //quering for data presentation
+                $first_query = "SELECT * FROM orders";
+                $first_query_result = mysqli_query($connection,$first_query);
+                if(mysqli_num_rows($first_query_result) > 0){
+                    while($order = mysqli_fetch_assoc($first_query_result)){
+                        $orderItemId = $order['product_id'];
+                        $second_query = "SELECT laptopName, laptopFrontImages FROM laptop WHERE id_no = '$orderItemId'";
+                        $second_query_result = mysqli_query($connection,$second_query);
+                        if(mysqli_num_rows($second_query_result) > 0){
+                            while($OrderedProduct = mysqli_fetch_assoc($second_query_result)){
+                                order($order['id'],$OrderedProduct['laptopName'],$OrderedProduct['laptopFrontImages'],$order['quantity'],$order['user_location'],$order['user_Phone_Number'],$order['user_gmail']);
+                            }
+                        }
+                        else{
+                            echo "Error while getting the product";
+                        }
+                    }
+                }
+                else{
+                    echo 'All orders have been delivered.';
+                }
+
+            ?>
+        </div>
     
     
     </div>

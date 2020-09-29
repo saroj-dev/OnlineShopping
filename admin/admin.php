@@ -60,3 +60,7 @@ if(isset($_POST['update_product'])){
 if(isset($_POST['delete_product'])){
     deleteData();
 }
+
+if(isset($_POST['delete_order'])){
+    deleteOrder();
+}

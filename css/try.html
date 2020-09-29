@@ -5,7 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-
+<body> 
+  <div class="cls"></div>
 </body>
+
+<script>
+
+
+var e = document.querySelectorAll(".cls")
+var observer = new MutationObserver(function (event) {
+  console.log(event)   
+})
+
+observer.observe(e, {
+  attributes: true, 
+  attributeFilter: ['class'],
+  childList: false, 
+  characterData: false
+})
+
+setTimeout(function () {
+
+  e.classList.add('hello') ;
+  
+setTimeout(function () {
+  e.classList.remove('hello') 
+}, 1000);
+}, 1000);
+ 
+
+
+</script>
 </html>
