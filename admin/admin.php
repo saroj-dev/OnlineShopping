@@ -12,7 +12,7 @@ if(isset($_POST['add_product'])){
             }
         </script>
         ";
-    popup('Add','create_product','','','','','','','');
+    popup('Add','create_product','','','','','','','','');
 }
 
 if(isset($_POST['save'])){
@@ -35,7 +35,7 @@ if(isset($_POST['edit_product'])){
                 </div>
             ";
     }
-    popup('Save','update_product',$productD['laptopName'],$printImages,$productD['laptopFeatures'],$productD['laptopPriceOrginal'],$productD['laptopPriceDiscounted'],$productD['keyword'],'<input type="hidden" name="id" value='.$getID.'/>');
+    popup('Save','update_product',$productD['laptopName'],$printImages,$productD['laptopFeatures'],$productD['laptopPriceOrginal'],$productD['laptopPriceDiscounted'],$productD['laptopRating'],$productD['keyword'],'<input type="hidden" name="id" value='.$getID.'/>');
     echo "
         <script>
             document.querySelector('body').onload = function() {

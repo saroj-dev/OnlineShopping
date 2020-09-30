@@ -1,5 +1,5 @@
 <?php 
-    function popup($btnValue,$btnName,$title,$printImages,$features,$originalPrice,$discountedPrice,$key,$hiddenContent){
+    function popup($btnValue,$btnName,$title,$printImages,$features,$originalPrice,$discountedPrice,$rating,$key,$hiddenContent){
         echo "
             <div class=\"admin__popupContainer container bg-light py-4\">
                 <form action=\"\" method=\"post\" enctype=\"multipart/form-data\">
@@ -47,6 +47,13 @@
                         <div class=\"admin__popupDiscountPrice form-group col-md-6\">
                             <label for=\"afterdiscount\">Price after Discount:</label>
                             <input name=\"discountedPrice\" value=\"$discountedPrice\" type=\"text\" class=\"form-control\" id=\"afterdiscount\" />
+                        </div>
+                    </div>
+
+                    <div class=\"admin__keysDiv\">
+                        <div class=\"form-group\">
+                            <label for=\"rating\">Rating:</label>
+                            <input type=\"text\" name=\"rating\" value=\"$rating\" class=\"form-control\" id=\"rating\" placeholder=\"Rating\">
                         </div>
                     </div>
 

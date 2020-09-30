@@ -5,6 +5,7 @@ function insertData(){
     $conn = $GLOBALS['connection'];
     $productName = mysqli_real_escape_string($conn,trim($_POST['title']));
     $productFrontImage = mysqli_real_escape_string($conn,trim($_POST['title']));
+    $productRating = mysqli_real_escape_string($conn,trim($_POST['rating']));
     $productFeatures = mysqli_real_escape_string($conn,trim($_POST['features']));
     $productOrginalPrice = mysqli_real_escape_string($conn,trim($_POST['originalPrice']));
     $productDiscountPrice  = mysqli_real_escape_string($conn,trim($_POST['discountedPrice']));
@@ -31,7 +32,7 @@ function insertData(){
         }        
     }
 
-    $sql = "INSERT INTO laptop (laptopName,laptopImages,laptopFrontImages,laptopFeatures,laptopPriceOrginal,laptopPriceDiscounted,keyword) VALUES('$productName','$images','$fullNameImages[0]','$productFeatures','$productOrginalPrice','$productDiscountPrice','$productKeywords')";
+    $sql = "INSERT INTO laptop (laptopName,laptopImages,laptopFrontImages,laptopFeatures,laptopPriceOrginal,laptopPriceDiscounted,laptopRating,keyword) VALUES('$productName','$images','$fullNameImages[0]','$productFeatures','$productOrginalPrice','$productDiscountPrice','$productRating','$productKeywords')";
 
     if(mysqli_query($conn,$sql)){
         alert('success','Yep!','Successfully inserted');
@@ -49,6 +50,7 @@ function updateData(){
     $productName = mysqli_real_escape_string($conn,trim($_POST['title']));
     $productFrontImage = mysqli_real_escape_string($conn,trim($_POST['title']));
     $productFeatures = mysqli_real_escape_string($conn,trim($_POST['features']));
+    $productRating = mysqli_real_escape_string($conn,trim($_POST['rating']));
     $productOrginalPrice = mysqli_real_escape_string($conn,trim($_POST['originalPrice']));
     $productDiscountPrice  = mysqli_real_escape_string($conn,trim($_POST['discountedPrice']));
     $productKeywords = mysqli_real_escape_string($conn,trim($_POST['key']));
@@ -76,7 +78,7 @@ function updateData(){
         }
     }
 
-    $sql = "UPDATE laptop SET laptopName='$productName',laptopImages='$images',laptopFrontImages='$fullNameImages[0]',laptopFeatures='$productFeatures',laptopPriceOrginal='$productOrginalPrice',laptopPriceDiscounted='$productDiscountPrice',keyword='$productKeywords' WHERE id_no='$itemID'";
+    $sql = "UPDATE laptop SET laptopName='$productName',laptopImages='$images',laptopFrontImages='$fullNameImages[0]',laptopFeatures='$productFeatures',laptopPriceOrginal='$productOrginalPrice',laptopPriceDiscounted='$productDiscountPrice',laptopRating='$productRating',keyword='$productKeywords' WHERE id_no='$itemID'";
 
     if(mysqli_query($conn,$sql)){
         alert('success','Yep!','Successfully updated');
