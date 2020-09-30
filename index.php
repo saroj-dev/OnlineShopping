@@ -302,25 +302,27 @@
 
                 <div class="con_for_the_lap">
                     <div class="mainHeading">
-                        Need a computer_parts ??
-                    </div>
+                    <h1>    Need a mobile ??
+                    </h1>
                     <h3>
                         This is a small collection of the Mobiles based on their company.
                         Grouped according to their models. Find the best Mobile in the following groups.
                     </h3>
+                    <br><br>
                     <p><span>*</span> Be the best buy the best.</p>
                     <p><span>*</span> Get the best technology in your hand. </p>
                     <p><span>*</span> Get the Mobile that meets your needs . </p>
+                    </div>
                     <div class="swiper-container swiper1">
-                        <div class="swiper-wrapper1">
-                            <div class="swiper-slide1">
-                                <img src="img/mobile-buy" alt="">
+                        <div class="swiper-wrapper swiper1_wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/mobile-buy.jpg" alt="">
                             </div>
-                            <div class="swiper-slide1">
-                                <img src="img/mobile-best" alt="">
+                            <div class="swiper-slide">
+                                <img src="img/mobile-best.jpg" alt="">
                             </div>
-                            <div class="swiper-slide1">
-                                <img src="img/mobile-buget" alt="">
+                            <div class="swiper-slide">
+                                <img src="img/mobile-buget.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -633,28 +635,28 @@
 
                     </div>
                 </div>
-
                 <div class="con_for_the_lap">
                     <div class="mainHeading">
-                        Need a Mobile ??
-                    </div>
+                    <h1>    Need Computer Parts ??
+                    </h1>
                     <h3>
-                        This is a small collection of the Computer parts. Find the best computer parts that feets your
-                        needs.
-                    </h3>
+                    This is a small collection of the Computer parts. Find the best computer parts that feets your
+                        needs.  </h3>
+                    <br><br>
                     <p><span>*</span> Be the best buy the best part you need.</p>
                     <p><span>*</span> Get the part that you want. </p>
                     <p><span>*</span> Get the computer part that meets your needs . </p>
+                    </div>
                     <div class="swiper-container swiper1">
-                        <div class="swiper-wrapper1">
-                            <div class="swiper-slide1">
-                                <img src="img/parts-buy" alt="">
+                        <div class="swiper-wrapper swiper1_wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/parts-buy.jpg" alt="">
                             </div>
-                            <div class="swiper-slide1">
-                                <img src="img/parts-best" alt="">
+                            <div class="swiper-slide">
+                                <img src="img/parts-best.jpg" alt="">
                             </div>
-                            <div class="swiper-slide1">
-                                <img src="img/parts-buget" alt="">
+                            <div class="swiper-slide">
+                                <img src="img/parts-buget.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -793,6 +795,27 @@
 <!-- this is for the script to load the php-->
 
 <script>
+
+    
+function yHandler(){
+	// Watch video for line by line explanation of the code
+	// http://www.youtube.com/watch?v=eziREnZPml4
+	var wrap = document.querySelector('.product_laptop');
+	var contentHeight = wrap.offsetHeight;
+	var yOffset = window.pageYOffset; 
+	var y = yOffset + window.innerHeight;
+	if(y >= contentHeight){
+        // Ajax call to get more dynamic data goes here
+        let new_req = new XMLHttpRequest();
+        new_req.open("")
+		
+	} 
+}
+window.onscroll = yHandler;
+
+
+
+
     var search_query = document.querySelector("#search_id");
     var search_button = document.querySelector(".fa-search");
 
@@ -805,7 +828,7 @@
 
 
     search_button.addEventListener("click", function () {
-        window.location.href = "?search_query=" + search_query.value;
+        window.location.href = "search.php?search_query=" + search_query.value;
     })
 
 

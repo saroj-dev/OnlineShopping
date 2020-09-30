@@ -20,13 +20,12 @@ include "connection.php";
       <div class="user_priv_details">
           <div class="logo_name_container">
               
-        <div class="logo" style="display: flex;justify-content: center; ">
+        <div class="logo" style="display: flex;justify-content: center; align-items:center; font-size:60px ">
           <?php
             if(isset($_SESSION['userName'])){
             // this is to setup the image check in the data base
             ?>
- 
-          <img src="img/logo_login.png" alt="" height=151  />
+  <i class="fas fa-user"></i>
             <?php  
 
             }
@@ -36,8 +35,8 @@ include "connection.php";
                 <?php            
         }
         else{
-          ?>
-          <img src="img/not_login.png" alt="" height=151  />
+          ?> 
+          <i class="fas fa-user"></i>
         <?php
         }
         ?>

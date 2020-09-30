@@ -27,7 +27,7 @@ var nav_shop_by_cat = document.querySelector(".shop");
 var nav_shop_by_cat_ch = document.querySelectorAll(".cat")[0];
 var nav_shop_by_cat_ch1 = document.querySelectorAll(".cat")[1];
 var nav_shop_by_cat_ch2 = document.querySelectorAll(".cat")[2];
-var nav_shop_by_cat_ch3 = document.querySelectorAll(".cat")[3];
+// var nav_shop_by_cat_ch3 = document.querySelectorAll(".cat")[3];
 cat_clicked = false ; 
 nav_shop_by_cat.addEventListener("click",function(){
     if(cat_clicked == false){
@@ -35,7 +35,7 @@ nav_shop_by_cat.addEventListener("click",function(){
         nav_shop_by_cat_ch.style.display = 'block';
         nav_shop_by_cat_ch1.style.display = 'block';
         nav_shop_by_cat_ch2.style.display = 'block';
-        nav_shop_by_cat_ch3.style.display = 'block';
+        // nav_shop_by_cat_ch3.style.display = 'block';
         cat_clicked = true;
         
     }
@@ -44,7 +44,7 @@ nav_shop_by_cat.addEventListener("click",function(){
         nav_shop_by_cat_ch.style.display = 'none';
         nav_shop_by_cat_ch1.style.display = 'none';
         nav_shop_by_cat_ch2.style.display = 'none';
-        nav_shop_by_cat_ch3.style.display = 'none';
+        // nav_shop_by_cat_ch3.style.display = 'none';
         cat_clicked = false;
     }
 });

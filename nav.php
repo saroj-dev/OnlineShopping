@@ -31,6 +31,7 @@
       </div>
       <div class="user_account">
           <a href="#Profile">
+              
               <i style="color:#e8e8e8;"class="fas fa-user-circle"></i>
           </a>
       </div>
@@ -60,21 +61,16 @@
                           Mobile
                       </li>
                     </a>
-                    
-                  <a href="search.php?search_query=tab ipad" class="cat nav_ko">
-                      <li>
-                          <i style="color:#e8e8e8;"class="fas fa-laptop"></i>    Tabs.
-                      </li>
-                    </a>
+                     
                     <a href="search.php?search_query=Computer parts" class="cat nav_ko">
                       <li>
-                          <i style="color:#e8e8e8;"class="fas fa-mobile"></i>
+                          <i style="color:#e8e8e8;"class="fas fa-memory"></i>
                           Computer Parts
                       </li>
                     </a>
                     <a href="index.php" class="nav_ko">
                       <li>
-                          <i style="color:#e8e8e8;"class="fas fa-user-circle"></i>
+                      <i  style="color:#e8e8e8;" class="fas fa-home"></i>
                           Home 
                       </li>
                     </a><?php
@@ -88,7 +84,7 @@
                 <?php }?>
                   <a href="user_profile.php" class="nav_ko">
                       <li>
-                          <i style="color:#e8e8e8;"class="fas fa-user-circle"></i>
+                          <i style="color:#e8e8e8;"class="fas fa-id-card"></i>
                           Profile
                       </li>
                     </a>
@@ -97,7 +93,7 @@
                 ?>
                     <a href="reg/login.php" class="nav_ko">
                       <li>
-                          <i style="color:#e8e8e8;"class="fas fa-user-circle"></i>
+                          <i style="color:#e8e8e8;"class="fas fa-unlock-alt"></i>
                           login 
                       </li>
                     </a>

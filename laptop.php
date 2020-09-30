@@ -2,7 +2,7 @@
 function printLaptop($key , $dirToImg){
     $INTHECART = array();
     include "connection.php";
-    $select = "SELECT * FROM  `laptop` WHERE keyword='$key' LIMIT 10";
+    $select = "SELECT * FROM  `laptop` WHERE keyword LIKE '%$key%' LIMIT 10";
     $result = $connection->query($select) or die("<h1 color='#fff'>Error from our side sorry</h1>");
     $count = 0;
     if ($result->num_rows > 0) {
