@@ -92,7 +92,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Asus Laptops :
+                        Asus :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
@@ -119,7 +119,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Apple Laptops :
+                        Apple :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
@@ -147,7 +147,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Lenovo Laptops :
+                        Lenovo :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
@@ -171,7 +171,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Acer Laptops :
+                        Acer :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
@@ -225,7 +225,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Samsung Laptops :
+                        Samsung :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
@@ -276,7 +276,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Microsoft Laptops :
+                        Microsoft :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
@@ -328,85 +328,6 @@
                 </div>
 
 
-
-                <div class="lpt1">
-
-                    <div class="title">
-                        Apple mobiles :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=apple mobile&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("apple_m" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Apple Ipads :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=apple ipad&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("apple_i" , "img/");
-                ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Samsung Mobile :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=Samsung Mobile&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("samsung_m" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-
-
-                </div>
 
 
                 <div class="lpt1">
@@ -578,7 +499,7 @@
 
                             <?php 
                     
-                    $redirect = '<a class="a" href="product/allproducts.php?group=google Mobile&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
+                    $redirect = '<a class="a" href="product/allproducts.php?group=google&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
                     printLaptop("google" , "img/");
                     ?>
                             <div class="swiper-slide">
@@ -595,17 +516,20 @@
 
 
                 </div>
+
                 <div class="lpt1">
 
                     <div class="title">
-                        Asus :
+                        Gaming:
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
-                            <?php
-                $redirect = '<a class="a" href="product/allproducts.php?group=asus Mobile&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("Asus_m" , "img/");
-                ?>
+
+                            <?php 
+                    
+                    $redirect = '<a class="a" href="product/allproducts.php?group=gaming&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
+                    printLaptop("gaming" , "img/");
+                    ?>
                             <div class="swiper-slide">
                                 <h1 class="heading" style="text-align:center; margin-top:100px">
                                     See all the <br>
@@ -615,22 +539,6 @@
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Gaming Section:
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-                            <!-- it is for the gmaing section -->
-                        </div>
-                        <!--this is for end of the dell company.-->
-
                     </div>
                 </div>
 
@@ -693,7 +601,7 @@
                 <div class="lpt1">
 
                     <div class="title">
-                        Ram :
+                        RAM :
                     </div>
                     <div class="swiper-container swiper">
                         <div class="swiper-wrapper">
