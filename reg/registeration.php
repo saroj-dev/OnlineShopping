@@ -177,6 +177,8 @@ if (isset($redirect)) {
 
   <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
   <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
   <script>
   if ( window.history.replaceState ) {
@@ -203,17 +205,12 @@ Email.send({
 <?php
   }
   ?>
-
- 
   function onSignIn(googleUser) {
-  alert("sure")
-
   var profile = googleUser.getBasicProfile();
-  alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  alert('Name: ' + profile.getName());
-  alert('Image URL: ' + profile.getImageUrl());
-  alert('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+var link = "../index.php?Name="+profile.Name()+"&Email="+profile.getEmail()+"&Imageurl="+profile.getImageUrl;
+window.location.href = link ;
   }
+
   
   </script>
   </body>

@@ -25,13 +25,13 @@ footer{
     z-index: 10;
     padding: 100px 0px ;
     margin-top:10px;
- }
+}
+
 body{
     /* background: #e2e2e2; */
     width: 100%;
     overflow-x: hidden;
     /* background: #333; */
-
 }
 
 .main_container{ 

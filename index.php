@@ -1,6 +1,21 @@
 <?php
     session_start();
     include "laptop_containers_php.php";
+    if(isset($_GET['Name'])){
+        if(isset($_GET['Email'])){
+            if(isset($_GET['Imageurl'])){
+                $_SESSION['email'] = $_GET['Email'];
+                $_SESSION['is_login'] = "true";
+                $_SESSION['userName'] =$_GET['Name'] ;
+                $_SESSION['logo'] = $_GET['ImageUrl'];
+            }
+        }
+    }
+?>
+
+<?php
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

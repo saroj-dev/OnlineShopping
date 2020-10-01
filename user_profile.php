@@ -282,8 +282,7 @@ switch_tab_bottom.forEach((element , j) => {
 
 function callMeend(e){ 
         url = "product/product.php?keyword="+e;
-        window.location.href = url;
-console.log("toehrjknjk")
+        window.location.href = url; 
 }
  
   </script>
