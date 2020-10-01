@@ -11,6 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/swipe.css">
+    <style>
+   *{
+            padding: 0;
+            margin: 0;
+        }
+        .videoBG {
+            width: 100%;
+        }
+    </style>
 
     <title>Document</title>
 </head>
@@ -24,9 +33,10 @@
             <?php
                 include "nav.php";
                 ?>
-
         </div>
-
+        <video class="videoBG" autoplay muted loop>
+        <source src="videoproject.mp4" type="video/mp4">
+        </video>
         <!-- main content -->
         <div class="main">
 
