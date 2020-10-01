@@ -190,9 +190,8 @@ display: none;
 /* products section. */
 
 .product_laptop{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows:1fr ;
+     display:flex;
+     flex-direction:column;
     /* background: #717171; */
 }
 
@@ -201,8 +200,7 @@ display: none;
 
 
 
- .lpt1{
-     margin-top: 100px;
+ .lpt1{ 
      max-height: 100vh;
  }
 /* del aptop end */
@@ -229,10 +227,10 @@ display: none;
      grid-template-rows: minmax(150px , 450px) 1fr;
  }
  .swiper-container{
-     max-height: 350px;
+     max-height: 550px;
  }
  .lpt1{
-     max-height: 360px;
+     max-height: 500px;
  }
 
 }

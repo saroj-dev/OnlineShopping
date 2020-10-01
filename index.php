@@ -1,7 +1,7 @@
 <?php
     session_start();
-    ?>
-
+    include "laptop_containers_php.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +32,7 @@
 
 
             <section class="product_laptop">
+
                 <div class="con_for_the_lap">
                     <div class="mainHeading">
                         <h1>
@@ -61,626 +62,104 @@
                     </div>
 
                 </div>
-
-
-
-                <!--this is for the divl company.-->
-                <div class="lpt1">
-
-                    <div class="title">
-                        Dell Laptops :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    include "laptop.php";
-                    $redirect = '<a class="a" href="product/allproducts.php?group=dell&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("dell" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Asus :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=asus&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("asus" , "img/");
+                <?php 
+                print_container("Apple");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Apple :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=Apple&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("apple" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-
-
-                </div>
-                <!--this is for the divl company.-->
-                <div class="lpt1">
-
-                    <div class="title">
-                        Lenovo :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=lenovo&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("lenovo" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Acer :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=acer&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("acer" , "img/");
+                <?php  
+                print_container("Asus");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        HP Laptops :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=hp&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("hp" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Samsung :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=samsung&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("samsung" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Razer Laptops :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=razer&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("razer" , "img/");
+                <?php  
+                print_container("dell");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
 
-                </div>
-                <div class="lpt1">
+                <?php
+                print_container("Lenovo");
+                ?>
 
-                    <div class="title">
-                        Microsoft :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
+                <?php
+                print_container("Acer");
+                ?>
 
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=microsoft&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("microsoft" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.---->
-                </div>
 
+                <?php
+                print_container("Microsoft");
+                ?>
 
                 <div class="con_for_the_lap">
                     <div class="mainHeading">
-                    <h1>    Need a mobile ??
-                    </h1>
-                    <h3>
-                        This is a small collection of the Mobiles based on their company.
-                        Grouped according to their models. Find the best Mobile in the following groups.
-                    </h3>
-                    <br><br>
+                        <h1>Need a Mobiles ?? </h1>
+                    
+                    <h3>This is a small collection of the Mobiles based on their company.Grouped according to their
+                        models. Find the best Mobile in the following groups.</h3><br><br>
                     <p><span>*</span> Be the best buy the best.</p>
                     <p><span>*</span> Get the best technology in your hand. </p>
                     <p><span>*</span> Get the Mobile that meets your needs . </p>
-                    </div>
+                </div>
                     <div class="swiper-container swiper1">
                         <div class="swiper-wrapper swiper1_wrapper">
-                            <div class="swiper-slide">
-                                <img src="img/mobile-buy.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/mobile-best.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/mobile-buget.jpg" alt="">
-                            </div>
+                            <div class="swiper-slide"><img src="img/mobile-buy.jpg"  alt=""></div>
+                            <div class="swiper-slide"><img src="img/mobile-best.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/mobile-buget.jpg" alt=""></div>
                         </div>
                     </div>
-
                 </div>
 
-
-
-
-                <div class="lpt1">
-                    <div class="title">
-                        RealMe :
-
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=Realme&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("Real" , "img/");
-            ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-                </div>
-
-                <div class="lpt1">
-
-                    <div class="title">
-                        One+ :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=one+&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("one" , "img/");
+                <?php
+                print_container("Redmi");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-                </div>
-                <div class="lpt1">
 
-                    <div class="title">
-                        Huawei :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=huawei&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("huawei" , "img/");
+                <?php
+                print_container("Oppo");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-                </div>
-                <div class="lpt1">
 
-                    <div class="title">
-                        Redmi :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=Redmi&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("redmi" , "img/");
-            ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-                </div>
-
-
-
-
-
-
-                <div class="lpt1">
-
-                    <div class="title">
-                        Oppo :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=Oppo Mobile&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("oppo" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Vivo :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=Vivo Mobile&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("vivo" , "img/");
+                <?php
+                print_container("Gaming Section");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
 
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Google :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=google&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("google" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
 
-                </div>
 
-                <div class="lpt1">
 
-                    <div class="title">
-                        Gaming:
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                    
-                    $redirect = '<a class="a" href="product/allproducts.php?group=gaming&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                    printLaptop("gaming" , "img/");
-                    ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
                 <div class="con_for_the_lap">
-                    <div class="mainHeading">
-                    <h1>    Need Computer Parts ??
-                    </h1>
-                    <h3>
-                    This is a small collection of the Computer parts. Find the best computer parts that feets your
-                        needs.  </h3>
-                    <br><br>
+                    <div class="mainHeading"><h1> Need Computer parts ?? </h1> 
+                    <h3>This is a small collection of the Computer parts. Find the best computer parts that feets
+                        yourneeds.</h3>
+                        <br><br>
                     <p><span>*</span> Be the best buy the best part you need.</p>
                     <p><span>*</span> Get the part that you want. </p>
                     <p><span>*</span> Get the computer part that meets your needs . </p>
-                    </div>
+                </div>
                     <div class="swiper-container swiper1">
                         <div class="swiper-wrapper swiper1_wrapper">
-                            <div class="swiper-slide">
-                                <img src="img/parts-buy.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/parts-best.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/parts-buget.jpg" alt="">
-                            </div>
+                            <div class="swiper-slide"><img src="img/parts-buy.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/parts-best.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/parts-buget.jpg" alt=""></div>
                         </div>
                     </div>
-
                 </div>
 
 
-
-                <div class="lpt1">
-
-                    <div class="title">
-                        Hard Disk :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=hard disk&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("hdd" , "img/");
+                <?php
+                print_container("Hard Disk");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        RAM :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=Ram&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("ram" , "img/");
+                <?php
+                print_container("RAM");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
 
-
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        Solid State Drive :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=Solid State Drive&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("sdd" , "img/");
+                <?php
+                print_container("Solid State Drive");
                 ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
+
+                <?php
+                print_container("M.2");
+                ?>
 
 
-                </div>
-                <div class="lpt1">
-
-                    <div class="title">
-                        M.2 :
-                    </div>
-                    <div class="swiper-container swiper">
-                        <div class="swiper-wrapper">
-
-                            <?php 
-                
-                $redirect = '<a class="a" href="product/allproducts.php?group=M.2&Name=laptop"><button class="div1_button_see_more">See more  </button></a> ';
-                printLaptop("m2" , "img/");
-            ?>
-                            <div class="swiper-slide">
-                                <h1 class="heading" style="text-align:center; margin-top:100px">
-                                    See all the <br>
-                                    Related items.
-                                </h1>
-                                <?php echo  $redirect?>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <!--this is for end of the dell company.-->
-
-
-                </div>
             </section>
         </div>
         <!-- left gap -->
@@ -699,27 +178,28 @@
 <script src="js/nav.js"></script>
 <script src="js/redirect.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 <!-- this is for the script to load the php-->
 
 <script>
+    var swiper = new Swiper('.swiper', {
 
-    
-function yHandler(){
-	// Watch video for line by line explanation of the code
-	// http://www.youtube.com/watch?v=eziREnZPml4
-	var wrap = document.querySelector('.product_laptop');
-	var contentHeight = wrap.offsetHeight;
-	var yOffset = window.pageYOffset; 
-	var y = yOffset + window.innerHeight;
-	if(y >= contentHeight){
-        // Ajax call to get more dynamic data goes here
-        let new_req = new XMLHttpRequest();
-        new_req.open("")
-		
-	} 
-}
-window.onscroll = yHandler;
+        grabCursor: true,
+        slidesPerView: 'auto',
+
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+
+
+    var swiper1 = new Swiper('.swiper1', {
+        autoplay: {
+            delay: 3000,
+        },
+    });
 
 
 
@@ -800,24 +280,5 @@ window.onscroll = yHandler;
         window.location.href = "user_profile.php";
     })
 </script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper('.swiper', {
-          
-        grabCursor: true,
-        slidesPerView: 'auto',
-         
-        pagination: {
-            el: '.swiper-pagination',
-        },
-    });
 
-
-    var swiper = new Swiper('.swiper1', {
-        disableOnInteraction: true,
-        autoplay: {
-            delay: 3000,
-        },
-    });
-</script>
 </html>

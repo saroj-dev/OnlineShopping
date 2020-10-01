@@ -34,7 +34,7 @@
         <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
          <img src="<?php echo "{$dirToImg}{$laptopFrontImage}" ;?>">
         <div class="btm">
-            <h2 class="heading"><?php echo $laptopName ; ?></h2>
+            <h2 class="heading" onclick="callMeend(<?php echo $product_id?>)"><?php echo $laptopName ; ?></h2>
          <small>
             <?php
             while ($n>0){
@@ -70,28 +70,28 @@
                                 ?>
                                 
                                 <a class="btn_add_cart disabled " href="#cart">
-                                    In the Cart <i class="fas fa-cart-plus"></i>
+                                    Click The title To order 👆 
                                 </a>
                                 <?php
                         }
                         else {
                             ?>
                             <a class="btn_add_cart " href="#cart">
-                                        Add to cart <i class="fas fa-cart-plus"></i>
+                            Click The title 👆 
                             </a>
                             <?php
                     }}
                     else {
                         ?>
                         <a class="btn_add_cart " href="#cart">
-                                    Add to cart <i class="fas fa-cart-plus"></i>
+                        Click The title 👆  
                         </a>
                         <?php
                     }}
                     else{
                         ?>
                         <a class="btn_add_cart not_logged_in" href="#cart">
-                                    Add to cart <i class="fas fa-cart-plus"></i>
+                        Click The title 👆 
                         </a>
                         <?php
                     }
@@ -123,3 +123,4 @@
     ?>
 
     </div>
+ 
