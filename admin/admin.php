@@ -27,8 +27,9 @@ if(isset($_POST['edit_product'])){
     $ImagesArrary = explode(',',$productD['laptopImages']);
     $printImages = '';
     foreach ($ImagesArrary as $index => $name){
+        
         $printImages .="
-                <div class=\"custom-file-container__image-multi-preview\" data-upload-token=\"2ptms4gpij7iwe51o5b63\" style=\"background:url('../img/$name'); \">
+                <div class=\"custom-file-container__image-multi-preview\" data-upload-token=\"2ptms4gpij7iwe51o5b63\" style=\"background:url('../img/$name');background-size:contain;background-repeat:no-repeat;width: 240px;height:auto;min-height: 160px;  \">
                     <span class=\"custom-file-container__image-multi-preview__single-image-clear\">
                         <span class=\"custom-file-container__image-multi-preview__single-image-clear__icon\" data-upload-token=\"2ptms4gpij7iwe51o5b63\">×</span>
                     </span>

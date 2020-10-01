@@ -199,6 +199,7 @@ Email.send({
           Body:'<div class="container" style = "width:70%; margin:0 auto; "><h1 style="font-size:3em; color:rgba(51, 51, 51, 0.767); ">Email Verification</h1><p style="font-size:1.5em; color:rgba(51, 51, 51, 0.76)">Thank you, New user for the email registeration your email is registered successfully but before you continue you need to verify your email address<br>Click the button below to activate your account thank you.<br><br>&nbsp;&nbsp;&nbsp;<small style="color:#e46a23;">*Note : If you have any question than feel free to sen a mail in this address.</small></p><br><br><br><a href="localhost/GitHub/OnlineShopping/reg/verify.php?hash=<?php echo $_SESSION['hash']?>" style="text-decoration:none; color:#fff; background:#333; font-size:1.8em; padding:20px 40px; border-radius:5px; position:absolute; left:50%; transform:translate(-50% , 0)">Activate</a></div>' ,
            
         }).then(message => {
+            console.log(message);
         });
 
 

@@ -46,12 +46,15 @@ if($result->num_rows > 0){
             <div class="img">
                 <?php
                 $img = explode(",",$productImage);
+                
             foreach($img as $src){
+    if(!empty($src)){
+         
     ?>
-    <img src="<?php echo "../img/{$src}" ;  ?>" alt="wrong location">
+    <img src="<?php echo "../img/{$src}" ;  ?>" ">
     <?php
 }
-
+            }
 
 ?>
                 <br>
@@ -65,9 +68,11 @@ $img = explode(",",$productImage);
 
  
 foreach($img as $src){
+    if(!empty($src)){
     ?>
     <img src="<?php echo "../img/{$src}" ;  ?>" alt="wrong location">
     <?php
+    }
 }
 
 
@@ -298,21 +303,24 @@ foreach($img as $src){
                     </div>
                    
                         <?php   foreach($features as $feature){
+                            
+    if(!empty($feature)){
                             echo  "<span class='span_star'> *</span> <span>{$feature}</span><br>";
-
+    }
                     }?>
                     
                 </div>
-
                 <div class="img_container">
                 <?php
                 $img = explode(",",$productImage);
             foreach($img as $src){
+                 
+    if(!empty($src)){
                     ?>
                     <img src="<?php echo "../img/{$src}" ;  ?>" alt="wrong location">
                     <?php
                 }
-
+            }
             }}
                 ?>
                 

@@ -1,6 +1,7 @@
 <?php 
     function popup($btnValue,$btnName,$title,$printImages,$features,$originalPrice,$discountedPrice,$rating,$key,$hiddenContent){
-        echo "
+        
+      echo "
             <div class=\"admin__popupContainer container bg-light py-4\">
                 <form action=\"\" method=\"post\" enctype=\"multipart/form-data\">
 
@@ -15,7 +16,7 @@
                             </label>
                             <a href=\"javascript:void(0)\" class=\"my-2 custom-file-container__image-clear btn btn-light d-block ml-auto btn btn-outline-danger\" role=\"button\" title=\"Clear Image\">Delete all</a>
                             <div class=\"custom-file-container__image-preview\"  style=\"overflow-x:hidden;\">
-                                $printImages
+                               $printImages
                             </div>
                         </div>
                     
@@ -70,8 +71,10 @@
                     </div>
                 </form>
         </div>
+    <script src=\"https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js\"></script>
+        
         <script> 
-            var upload = new FileUploadWithPreview('myUniqueUploadId')
+            var upload = new FileUploadWithPreview('myUniqueUploadId');
         </script>
         ";
     }        

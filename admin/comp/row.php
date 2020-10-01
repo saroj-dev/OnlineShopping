@@ -21,7 +21,7 @@
                     <button class=\"btn btn-success btn-sm\" type=\"submit\" name=\"edit_product\" data-toggle=\"tooltip\" data-placement=\"left\" title=\"Edit\">
                         <span class=\"material-icons\">create</span>
                     </button>
-                    <button class=\"btn btn-outline-danger btn-sm\" type=\"submit\" name=\"delete_product\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete\">
+                    <button class=\"btn btn-outline-danger btn-sm\" onclick=deleteTheItem($id) type=\"submit\" name=\"delete_product\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete\">
                         <span class=\"material-icons\">delete_forever</span>
                     </button>
                 </div>

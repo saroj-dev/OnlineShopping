@@ -53,12 +53,18 @@ include "connection.php";
         ?>
         </div>
         </div>
-
                 <?php
         if(isset($_SESSION['userName'])){
         if(isset($_SESSION["email"])){
+        ?><?php 
+        if(isset($_SESSION['logo'])){
         ?>
+        <button id="logout" class="logout" onclick="signOut();">logout</button>
+        <?php }else{
+          ?>
         <button id="logout" class="logout">logout</button>
+        <?php }?>
+        
         <?php
             }
             }
@@ -284,6 +290,15 @@ function callMeend(e){
         url = "product/product.php?keyword="+e;
         window.location.href = url; 
 }
+
+
+ 
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+    });
+  }
+ 
  
   </script>
 </html>
