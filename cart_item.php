@@ -13,7 +13,7 @@
                      array_push($INTHECART , $cart['cart']);
                      }
     } 
-    $unique_array_IN  = array_unique($INTHECART);
+    $unique_array_IN  = array_unique($INTHECART); 
     $dirToImg = "img/";
     $j = 0; 
     foreach ($unique_array_IN as $key ) {
@@ -73,9 +73,12 @@
     }
          }
         }
-        else{
-            header("Location: reg/login.php");
+        else{ 
+             
+            echo "<script>window.location.href = 'reg/login.php'</script>";
+       
         }
+        
         
         
   

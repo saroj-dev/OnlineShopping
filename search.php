@@ -15,8 +15,7 @@ $INTHECART = array();
     <title>Search Result</title> 
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/cart_inthe_flex.css">
-    
-</head>
+    </head>
 <body>
 <div class="va">
         <?php
@@ -162,7 +161,8 @@ include "nav.php";
 </div>
 </body>
 <script src="https://kit.fontawesome.com/cc8ed28d8b.js" crossorigin="anonymous"></script>
-<script src="js/nav.js"></script>
+
+ <script src="js/nav.js"></script>
 <script src="js/redirect.js"></script>
 
 <script>

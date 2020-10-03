@@ -2,21 +2,18 @@
 
 <?php   
 
-    if(isset($_REQUEST['q'])){
-         
+    if(isset($_REQUEST['q'])){ 
     $INTHECART = array();
     include "connection.php";
-    $arra = str_split($_REQUEST['q']);
+    $arra = explode(",",$_REQUEST['q']);
     foreach ($arra as $k) {
-        if($k == ','){
-        }else{
-    
         $select  = "SELECT * FROM `laptop`";
         $result = $connection->query($select);
     // $result = $connection->prepare("SELECT * FROM `laptop`");
     // $result->bind_param("i",$_REQUEST['q']);
     // $result->execute();
     $dirToImg = "img/";
+    
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $product_id = $row['id_no'];
@@ -118,7 +115,7 @@
          
     } 
 }}
-}
+
      
     ?>
 

@@ -98,6 +98,23 @@
                       </li>
                     </a>
                     <?php } ?>
+                    <?php
+ 
+if(isset($_SESSION['email'])){
+    if(isset($_SESSION['userName'])){
+        if($_SESSION['userName'] == "Admin"){  
+        if($_SESSION['email'] == "proudnepal.it@gmail.com"){  
+            ?>
+            <a href='admin/index.php'><li>
+            <i style="color:#e8e8e8;"class="fas fa-unlock-alt"></i>
+            Admin Pannel 
+        </li></a>
+  <?php
+    }
+        }}}
+
+?>
+
         </ul>
     </div>
     <script>

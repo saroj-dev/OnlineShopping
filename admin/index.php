@@ -1,4 +1,37 @@
 <?php
+session_start();
+if(isset($_SESSION['email'])){
+ 
+
+    if(isset($_SESSION['userName'])){
+ 
+
+        if($_SESSION['userName'] == "Admin"){  
+ 
+
+        if($_SESSION['email'] == "proudnepal.it@gmail.com"){  
+            echo "<a href='../index.php'>Go to home page</a>";
+  
+    }
+    else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }    
+ } else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }
+  }  else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }
+ } else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }
+
+?>
+
+
+
+
+<?php
     include './comp/row.php';
     include './comp/popup.php';
     include './comp/SearchBox.php';

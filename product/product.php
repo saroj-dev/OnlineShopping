@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $INTHECART = array();
+    $INTHECART = array(); 
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +29,7 @@
  $select = "SELECT * FROM  `$table` WHERE id_no='$key'";
 $result = $connection->query($select);
 if($result->num_rows > 0){
-    while ($row = $result->fetch_assoc()) {
-        $product_id = $row['id_no'];
+    while ($row = $result->fetch_assoc()) { 
         $productName = $row["{$table}Name"] ;
         $productImage = $row["{$table}Images"];
         $productFrontImage = $row["{$table}FrontImages"]; 
@@ -313,14 +312,19 @@ foreach($img as $src){
                 <div class="img_container">
                 <?php
                 $img = explode(",",$productImage);
-            foreach($img as $src){
                  
-    if(!empty($src)){
+            foreach($img as $index_of => $src){
+                 if($index_of == 3){
+                 break;
+                 }else{
+
+                 if(!empty($src)){
                     ?>
                     <img src="<?php echo "../img/{$src}" ;  ?>" alt="wrong location">
                     <?php
                 }
             }
+        }
             }}
                 ?>
                 
@@ -334,29 +338,60 @@ foreach($img as $src){
                 <div class="laptopContainer">
                     
                   <?php
-
+                  $items_in_the_suggest = array();
+                $id =  $_GET['keyword'];
                 include "../connection.php";
                 $dirToImg = "../img/";
-                $key = 'dell' ;
-    if($key!=0){
-        $select = "SELECT * FROM  `laptop` WHERE keyword = $key"  ;
-    }else{
-    $select = "SELECT * FROM  `laptop`" ;
-    }
-    $result = $connection->query($select);
-    $count = 0;
+                $qu = "SELECT keyword FROM `laptop` WHERE id_no=?";
+                $stmt = mysqli_stmt_init($connection);
+                 if(!mysqli_stmt_prepare($stmt , $qu)){
+                    echo "sql failed";
+                 }
+                else{ 
+                    mysqli_stmt_bind_param($stmt,"s" , $id );
+                    mysqli_stmt_execute($stmt);
+                    $resu = mysqli_stmt_get_result($stmt);
 
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-         $product_id = $row['id_no'];
-         $laptopName = $row["laptopName"] ;
-         $laptopImage = $row["laptopImages"];
-         $laptopFrontImage = $row["laptopFrontImages"]; 
-         $laptopFeatures = $row["laptopFeatures"]; 
-         $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
-         $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
-         $n =  $row["laptopRating"];
-         
+                    while($ro = mysqli_fetch_assoc($resu)){
+                        
+                        if(strpos($ro['keyword'] , ',') !== false){
+                            $key = explode("," , $ro['keyword']);
+                        }else{
+                            $key = $ro['keyword'];
+                        }
+                    }
+                }
+              
+
+                $select = "SELECT * FROM  `laptop` WHERE   keyword LIKE ? AND id_no != ?";
+    $stmt1 = mysqli_stmt_init($connection);
+     if(!mysqli_stmt_prepare($stmt1 , $select)){
+         echo "failed";
+     }
+    else{     
+         if(is_array($key)){
+             foreach ($key as $k) { 
+                $k = "%$k%";
+         //this is to fetch the suggested products
+        mysqli_stmt_bind_param($stmt1,"ss" ,  $k , $id );
+        mysqli_stmt_execute($stmt1);
+        $result = mysqli_stmt_get_result($stmt1);
+       
+        while($row = mysqli_fetch_assoc($result)){
+            $product_id = $row['id_no'];
+            $laptopName = $row["laptopName"] ;
+            $laptopImage = $row["laptopImages"];
+            $laptopFrontImage = $row["laptopFrontImages"]; 
+            $laptopFeatures = $row["laptopFeatures"]; 
+            $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
+            $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
+            $n =  $row["laptopRating"];
+            if(!in_array($product_id , $items_in_the_suggest)){
+                array_push($items_in_the_suggest , $product_id );
+            }else{
+            break;
+            }
+            
          ?>
         <div class="container">
         <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
@@ -438,6 +473,118 @@ foreach($img as $src){
       
 
      }
+             }
+         }else{
+//this is to fetch the suggested products if not arr
+            $key = "%$key%";
+
+             mysqli_stmt_bind_param($stmt1,"ss" ,  $key , $id );
+             mysqli_stmt_execute($stmt1);
+             $result = mysqli_stmt_get_result($stmt1);
+     
+             while($row = mysqli_fetch_assoc($result)){
+            
+              $product_id = $row['id_no'];
+              $laptopName = $row["laptopName"] ;
+              $laptopImage = $row["laptopImages"];
+              $laptopFrontImage = $row["laptopFrontImages"]; 
+              $laptopFeatures = $row["laptopFeatures"]; 
+              $laptopOrginalPrice = $row["laptopPriceOrginal"] ;
+              $laptopDiscountPrice  = $row["laptopPriceDiscounted"]; 
+              $n =  $row["laptopRating"];
+              if(!in_array($product_id , $items_in_the_suggest)){
+                array_push($items_in_the_suggest , $product_id );
+            }else{
+            break;
+            }
+            
+              
+              ?>
+             <div class="container">
+             <input type="text" hidden style="display: none;" data-id="<?php echo $product_id;   ?>">
+              <img src="<?php echo "{$dirToImg}{$laptopFrontImage}" ;?>">
+             <div class="btm">
+                 <h2 class="heading"><?php echo $laptopName ; ?></h2>
+              <small>
+                 <?php
+                 while ($n>0){
+                     echo("⭐");
+                     $n = $n-1;
+                 }
+                 ?>
+              </small>
+              <small class="orginal_price">
+                  <small class="high_price">
+                    RS.  <?php echo $laptopOrginalPrice ; ?>
+                 </small>
+                 RS. <?php echo  $laptopDiscountPrice ; ?>
+                 </small>
+                 <br>
+             
+     
+                 
+         <?php
+                 // making a querry to check fetch the data from the userinfo tab.
+                 if(isset($_SESSION["is_login"])){
+                     $checkQ = "SELECT * FROM `userinfo` WHERE emailAddress='{$_SESSION['email']}'";
+                 //    checking the output of the query
+                     $output =  $connection->query($checkQ);
+                     if($output->num_rows > 0){
+                         // echo "it has some value";
+                       
+                         while($cart = $output->fetch_assoc()){
+                             array_push($INTHECART , $cart['cart']);
+                         }
+                         $unique_array_IN  = array_unique($INTHECART);
+                         
+                              if(in_array($product_id, $unique_array_IN) ){
+                               
+                                     ?>
+                                     
+                                     <a class="btn_add_cart disabled " href="#cart">
+                                         In the Cart <i class="fas fa-cart-plus"></i>
+                                     </a>
+                                     <?php
+                             }
+                             else {
+                                 ?>
+                                 <a class="btn_add_cart " href="#cart">
+                                             Add to cart <i class="fas fa-cart-plus"></i>
+                                 </a>
+                                 <?php
+                         }}
+                         else {
+                             ?>
+                             <a class="btn_add_cart " href="#cart">
+                                         Add to cart <i class="fas fa-cart-plus"></i>
+                             </a>
+                             <?php
+                         }}
+                         else{
+                             ?>
+                             <a class="btn_add_cart not_logged_in" href="#cart">
+                                         Add to cart <i class="fas fa-cart-plus"></i>
+                             </a>
+                             <?php
+                         }
+                     
+                 ?>
+             </div>
+         </div>
+     
+     
+     <?php
+     
+           
+           
+           
+     
+          }
+
+
+
+         }                                                      
+        
     }
     
   
@@ -502,7 +649,7 @@ addtoCart1.forEach(function(elm,i){
          request.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             if(elm.classList.contains("not_logged_in")){
-            window.location.href = "reg/login.php";
+            window.location.href = "../reg/login.php";
             }else{
             elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
             elm.style.cursor = "not-allowed";
@@ -542,7 +689,7 @@ addtoCart.forEach(function(elm,i){
          request.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             if(elm.classList.contains("not_logged_in")){
-            window.location.href = "reg/login.php";
+            window.location.href = "../reg/login.php";
             }else{
             elm.innerHTML = "In the cart <i class='fas fa-cart-plus'></i>";
             elm.style.cursor = "not-allowed";
@@ -576,7 +723,7 @@ window.location.href = "../show_cart.php";
  var box_black = document.querySelector(".boX_back");
  var alert_box = document.querySelector(".box_alert");
 document.querySelector(".buyNow").addEventListener("click",function () {
-    addtoCart1.forEach(function(elm,i){
+    addtoCart.forEach(function(elm,i){
     if(elm.classList.contains("not_logged_in")){
             window.location.href = "../reg/login.php";
     
@@ -673,15 +820,14 @@ document.querySelector("#number_inp_user").addEventListener("keydown",function(e
         e.style.outline = "2px solid red";
         }
    }
-
-
-
+   <?php
+   if(isset($_SESSION['userName'])){
+       ?>
 document.querySelector(".buyNow1").addEventListener("click",function(){
     var qty =document.querySelector(".input_container").value ;
     var usrloc =document.querySelector("#addresh_container_alert_box").innerText  ;
     var phn = document.querySelector("#number_container_alert_box").value;
     var usreml =document.querySelector("#user_gmail").innerText;
-
         if(usrloc!="Choose Your Shipping Address Add >" && phn!=''){
         var window_search= window.location.search + "&qty="+(qty.split(" ")).join("")+"&usrloc="+(usrloc.split(" ")).join("")+"&phn="+(phn.split(" ")).join("") + "&usreml="+(usreml.split(" ")).join("");
         this.style.pointerEvents = "none";
@@ -690,13 +836,12 @@ document.querySelector(".buyNow1").addEventListener("click",function(){
         send_data_page.send();
         box_black.style.display = "none";
         alert_box.style.display="none";
-           
     Email.send({
           SecureToken: "0595beeb-b765-4993-87ac-cd91bf333730",
           To: 'sajanaregmi40@gmail.com',
           From: "proudnepal.it@gmail.com",
           Subject: "shopping order",
-          Body:  '<div class="order-container" style="color: #333; font-size: 1.5em;">Product Name :-<?php echo$laptopName; ?><br>Quantity :- '+ qty +'<br><br>Ordered By :- <?php echo $_SESSION['userName']; ?> <br>Email :-<?php echo $_SESSION['email'] ?>  <br> Phone Number :- '+ phn +  '  <br>   Addresh :- '+usrloc  +'  <br></div>' ,
+          Body:  '<div class="order-container" style="color: #333; font-size: 1.5em;">Product Name :-<?php echo $productName; ?><br>Quantity :- '+ qty +'<br><br>Ordered By :- <?php echo $_SESSION['userName']; ?> <br>Email :-<?php echo $_SESSION['email'] ?>  <br> Phone Number :- '+ phn +  '  <br>   Addresh :- '+usrloc  +'  <br></div>' ,
         }).then(
           message => {
             Swal.fire({
@@ -713,18 +858,16 @@ document.querySelector(".buyNow1").addEventListener("click",function(){
         })
           }
 
-
-}
+        }
 )
-
+<?php
+}
+?>
 
 
 
 document.querySelector(".fa-user-circle").addEventListener("click",function(){
     window.location.href = "../user_profile.php";
 })
-
-
-
 </script>
 </html>

@@ -20,10 +20,10 @@ if($_REQUEST['email'] == "" ||  $_REQUEST['password']==""){
   $error_mess = '<div class="not"> Please fill the form to login </div> ';
 }else{
 if($_REQUEST['email'] == "proudnepal.it@gmail.com" AND $_REQUEST['password'] == "2T@4[g{ck9B6aa251d8-d136-P-5tz/mGBY2p:S=68-a182-36815d6aa251d8-d136-4368-a182-36815dfa6be5;fa6be55Aa(Q;" ){
-  
   $_SESSION['is_login'] = true;
   $_SESSION['email'] = $_REQUEST['email'];
   $_SESSION["userName"] = 'Admin';
+  $_SESSION['verified'] ="true";
   header("location: ../admin/index.php");
 }
 $select = "SELECT email, password , username FROM user_register WHERE email = '".$email."' AND password = '".$password."'limit 1 ";
@@ -36,6 +36,8 @@ if($fire_select->num_rows > 0){
   $_SESSION['is_login'] = true;
   $_SESSION['email'] = $email;
   $_SESSION["userName"] = $userName;
+  $_SESSION['verified'] ="true";
+
   if(isset($_SESSION['previous_location'])){
     header("Location: ../". $_SESSION['previous_location'] ." ");       
   }else{

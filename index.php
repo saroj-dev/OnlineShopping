@@ -1,5 +1,5 @@
-<?php
-    session_start();
+
+<?php 
     include "laptop_containers_php.php";
     if(isset($_GET['Name'])){
         if(isset($_GET['Email'])){
@@ -13,10 +13,8 @@
     }
 ?>
 
-<?php
-    
 
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +31,7 @@
         }
         .videoBG {
             width: 100%;
+            margin-top:70px;
         }
     </style>
 
@@ -62,6 +61,7 @@
                     <div class="mainHeading">
                         <h1>
                             Need a laptop ??
+                             
                         </h1>
                         <h3>
                             This is a small collection of the laptops based on their company.
@@ -88,11 +88,11 @@
 
                 </div>
                 <?php 
-                print_container("Apple");
+                print_container("apple");
                 ?>
 
                 <?php  
-                print_container("Asus");
+                print_container("asus");
                 ?>
 
                 <?php  
@@ -101,16 +101,16 @@
 
 
                 <?php
-                print_container("Lenovo");
+                print_container("lenovo");
                 ?>
 
                 <?php
-                print_container("Acer");
+                print_container("acer");
                 ?>
 
 
                 <?php
-                print_container("Microsoft");
+                print_container("microsoft");
                 ?>
 
                 <div class="con_for_the_lap">
@@ -133,15 +133,15 @@
                 </div>
 
                 <?php
-                print_container("Redmi");
+                print_container("redmi");
                 ?>
 
                 <?php
-                print_container("Oppo");
+                print_container("oppo");
                 ?>
 
                 <?php
-                print_container("Gaming Section");
+                print_container("gaming_Section");
                 ?>
 
 

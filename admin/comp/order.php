@@ -1,5 +1,33 @@
 <?php 
 
+if(isset($_SESSION['email'])){
+ 
+
+    if(isset($_SESSION['userName'])){
+ 
+
+        if($_SESSION['userName'] == "Admin"){  
+ 
+
+        if($_SESSION['email'] == "proudnepal.it@gmail.com"){   
+    }
+    else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }    
+ } else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }
+  }  else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }
+ } else{            echo "<script> window.location.href = '../index.php'</script> ";
+
+    }
+
+?>
+
+<?php 
+
 function order($id,$name,$image,$quantity,$location,$phoneNumber,$gmailID){
     echo "
     <form action=\"\" method=\"POST\">
