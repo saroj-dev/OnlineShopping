@@ -8,6 +8,7 @@ if(isset($_SESSION['verified'])){
     header("Location: ../index.php");  
 }
 }
+
 else{
 include "connection.php"; 
 if(isset($_REQUEST['submit'])){
@@ -18,34 +19,49 @@ $password = mysqli_real_escape_string($con, $password);
 
 if($_REQUEST['email'] == "" ||  $_REQUEST['password']==""){
   $error_mess = '<div class="not"> Please fill the form to login </div> ';
-}else{
-if($_REQUEST['email'] == "proudnepal.it@gmail.com" AND $_REQUEST['password'] == "2T@4[g{ck9B6aa251d8-d136-P-5tz/mGBY2p:S=68-a182-36815d6aa251d8-d136-4368-a182-36815dfa6be5;fa6be55Aa(Q;" ){
+}else if($_REQUEST['email'] == "proudnepal.it@gmail.com" AND $_REQUEST['password'] == "2T@4[g{ck9B6aa251d8-d136-P-5tz/mGBY2p:S=68-a182-36815d6aa251d8-d136-4368-a182-36815dfa6be5;fa6be55Aa(Q;" ){
+  
   $_SESSION['is_login'] = true;
   $_SESSION['email'] = $_REQUEST['email'];
   $_SESSION["userName"] = 'Admin';
   $_SESSION['verified'] ="true";
   header("location: ../admin/index.php");
 }
-$select = "SELECT email, password , username FROM user_register WHERE email = '".$email."' AND password = '".$password."'limit 1 ";
-$fire_select = $con->query($select);
+else{
+$select = "SELECT email, password , username FROM user_register WHERE email = ? AND password = ? limit 1 ";
+$stmt = mysqli_stmt_init($con);
+if(!mysqli_stmt_prepare($stmt, $select)){
+  $error_mess = '<div class="not"> Unfortunately, an error happened </div> ';
+}
+else{
+  mysqli_stmt_bind_param($stmt, 'ss', $email, $password);
+  mysqli_stmt_execute($stmt);
+  $fire_select = mysqli_stmt_get_result($stmt);
 
-if($fire_select->num_rows > 0){
-  while($row = $fire_select->fetch_assoc()){
-    $userName = $row["username"];
-  }
-  $_SESSION['is_login'] = true;
-  $_SESSION['email'] = $email;
-  $_SESSION["userName"] = $userName;
+  if($fire_select->num_rows > 0){
+    while($row = $fire_select->fetch_assoc()){
+      $userName = $row["username"];
+    }
+    $_SESSION['is_login'] = true;
+    $_SESSION['email'] = $email;
   $_SESSION['verified'] ="true";
+    $_SESSION["userName"] = $userName;
+    if(isset($_SESSION['previous_location'])){
+      header("Location: ../". $_SESSION['previous_location'] ." ");       
+    }else{
+    header("Location: ../index.php");  
+    exit();
+  }
 
   if(isset($_SESSION['previous_location'])){
     header("Location: ../". $_SESSION['previous_location'] ." ");       
   }else{
-  header("Location: ../index.php");  }
-  exit;
-}else{
-  $error_mess = '<div class="warning"> Please enter corret email and pasword</div> ';
+    $error_mess = '<div class="warning"> Please enter corret email and pasword</div> ';
+  }
+
 }
+
+
 }
 
 }}
