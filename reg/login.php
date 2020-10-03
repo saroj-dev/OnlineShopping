@@ -26,24 +26,35 @@ if($_REQUEST['email'] == "proudnepal.it@gmail.com" AND $_REQUEST['password'] == 
   $_SESSION["userName"] = 'Admin';
   header("location: ../admin/index.php");
 }
-$select = "SELECT email, password , username FROM user_register WHERE email = '".$email."' AND password = '".$password."'limit 1 ";
-$fire_select = $con->query($select);
-
-if($fire_select->num_rows > 0){
-  while($row = $fire_select->fetch_assoc()){
-    $userName = $row["username"];
-  }
-  $_SESSION['is_login'] = true;
-  $_SESSION['email'] = $email;
-  $_SESSION["userName"] = $userName;
-  if(isset($_SESSION['previous_location'])){
-    header("Location: ../". $_SESSION['previous_location'] ." ");       
-  }else{
-  header("Location: ../index.php");  }
-  exit;
-}else{
-  $error_mess = '<div class="warning"> Please enter corret email and pasword</div> ';
+$select = "SELECT email, password , username FROM user_register WHERE email = ? AND password = ? limit 1 ";
+$stmt = mysqli_stmt_init($con);
+if(!mysqli_stmt_prepare($stmt, $select)){
+  $error_mess = '<div class="not"> Unfortunately, an error happened </div> ';
 }
+else{
+  mysqli_stmt_bind_param($stmt, 'ss', $email, $password);
+  mysqli_stmt_execute($stmt);
+  $fire_select = mysqli_stmt_get_result($stmt);
+
+  if($fire_select->num_rows > 0){
+    while($row = $fire_select->fetch_assoc()){
+      $userName = $row["username"];
+    }
+    $_SESSION['is_login'] = true;
+    $_SESSION['email'] = $email;
+    $_SESSION["userName"] = $userName;
+    if(isset($_SESSION['previous_location'])){
+      header("Location: ../". $_SESSION['previous_location'] ." ");       
+    }else{
+    header("Location: ../index.php");  }
+    exit;
+  }else{
+    $error_mess = '<div class="warning"> Please enter corret email and pasword</div> ';
+  }
+
+}
+
+
 }
 
 }}
